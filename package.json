@@ -1,28 +1,26 @@
 {
   "name": "snapboard",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A minimal dock-based kanban board and companion app to SnapDock.",
-  "author": "StaxDash",
+  "author": {
+    "name": "StaxDash Studio",
+    "email": "zforddev@gmail.com"
+  },
   "license": "MIT",
   "main": "src/main.js",
-
   "scripts": {
     "dev": "electron .",
-    "build:css": "npx tailwindcss -i ./src/tailwind.css -o ./src/styles.css --minify",
+    "build:css": "assets/tailwind/tailwindcss -i ./src/tailwind.css -o ./src/styles.css --minify",
     "build": "npm run build:css && electron-builder"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZFordDev/SnapBoard.git"
   },
-
   "bugs": {
     "url": "https://github.com/ZFordDev/SnapBoard/issues"
   },
-
   "homepage": "https://github.com/ZFordDev/SnapBoard#readme",
-
   "keywords": [
     "kanban",
     "board",
@@ -31,30 +29,24 @@
     "SnapBoard",
     "productivity"
   ],
-
   "dependencies": {
     "electron-store": "^9.0.0"
   },
-
   "devDependencies": {
-    "electron": "40.6.0",
-    "electron-builder": "26.8.1",
+    "electron": "40.4.0",
+    "electron-builder": "^26.7.0",
     "tailwindcss": "4.2.1"
   },
-
   "build": {
     "appId": "studio.staxdash.snapboard",
     "productName": "SnapBoard",
-
     "directories": {
       "output": "dist"
     },
-
     "files": [
       "src/**/*",
       "package.json"
     ],
-
     "publish": [
       {
         "provider": "github",
@@ -62,28 +54,29 @@
         "repo": "SnapBoard"
       }
     ],
-
     "win": {
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "artifactName": "SnapBoard-Setup.exe",
       "icon": "src/assets/icon.ico"
     },
-
     "linux": {
-      "target": ["deb", "AppImage"],
+      "target": [
+        "deb",
+        "AppImage"
+      ],
       "category": "Utility",
       "icon": "src/assets/icons"
     },
-
     "appImage": {
       "artifactName": "SnapBoard.AppImage"
     },
-
     "deb": {
       "artifactName": "snapboard_${version}_amd64.deb"
     }

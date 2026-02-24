@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self';" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnapBoard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-transparent select-none overflow-hidden border border-red-500">
+
+  <!-- Dock -->
+  <div id="dock"
+       class="h-14 w-full flex items-center justify-between px-4
+              bg-white/10 backdrop-blur-md border-b border-white/10
+              drag-region">
+
+    <div class="font-semibold text-white/80">SnapBoard</div>
+
+    <div class="flex gap-2">
+      <button id="min-btn" class="w-3 h-3 rounded-full bg-yellow-400"></button>
+      <button id="close-btn" class="w-3 h-3 rounded-full bg-red-500"></button>
+    </div>
+  </div>
+
+  <!-- Glass Panel -->
+  <div id="panel"
+       class="absolute top-10 left-0 right-0 bottom-0
+              bg-[#222] border border-white/10 rounded-b-xl
+              shadow-xl transition-all duration-300">
+
+    <!-- Column Container -->
+    <div id="board"
+         class="flex flex-row gap-4 p-4 overflow-x-auto h-full">
+      <!-- Columns will be injected here -->
+    </div>
+
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
