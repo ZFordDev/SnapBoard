@@ -1,0 +1,58 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Electron Builder output
+dist/
+build/
+out/
+
+# Tailwind output
+src/styles.css
+
+# Local environment
+.env
+.env.local
+.env.*.local
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Editor junk
+.vscode/
+.idea/
+*.swp
+
+# Electron cache
+*.asar
+*.asar.unpacked
+
+# SnapBoard local data (electron-store)
+snapboard-data.json
+snapboard-data/*
+userdata/
+userdata.json
+
+# Temporary files
+*.tmp
+*.temp
+
+# Release artifacts (just in case)
+SnapBoard-Setup.exe
+SnapBoard-Setup.exe.blockmap
+SnapBoard.AppImage
+SnapBoard.AppImage.blockmap
+latest.yml
+latest-linux.yml
+
+# GitHub Actions artifacts
+*.zip
+*.7z
