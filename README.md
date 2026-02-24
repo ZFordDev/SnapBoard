@@ -5,6 +5,9 @@ SnapBoard uses a dock‑based frameless UI with a glass panel that slides out fr
 
 Built for speed, clarity, and everyday workflow.
 
+
+[! NOTE] > this app is still in development and at this stage should not be used by anyone. 
+
 ---
 
 ## ✨ Features
