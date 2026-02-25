@@ -1,6 +1,6 @@
 # SnapBoard
 
-A minimal, local‑first kanban board designed as a companion to **SnapDock**.  
+A minimal, kanban board designed as a companion to **SnapDock**.  
 SnapBoard uses a dock‑based frameless UI with a glass panel that slides out from any screen edge.
 
 Built for speed, clarity, and everyday workflow.
@@ -14,7 +14,7 @@ Built for speed, clarity, and everyday workflow.
 ## ✨ Features (Planned & In Progress)
 
 - Frameless dock with draggable region  
-- Glass‑panel board with smooth slide‑out animation  
+- Smooth slide‑out animation  
 - Dynamic columns (default 7, expandable up to 32)  
 - Drag‑and‑drop cards  
 - File cards (stores file paths locally)  
@@ -30,14 +30,14 @@ Built for speed, clarity, and everyday workflow.
 
 SnapBoard is part of the **SnapDock ecosystem** — a family of tools built to be:
 
-- minimal  
-- local‑first  
-- offline  
-- fast  
-- beautiful  
-- distraction‑free  
+- Minimal  
+- Local‑first  
+- Offline  
+- Fast  
+- Beautiful  
+- Distraction‑free  
 
-Every component is designed to feel lightweight, responsive, and intentional.
+Every component is designed to feel lightweight and responsive.
 
 ---
 
