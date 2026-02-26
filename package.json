@@ -10,7 +10,7 @@
   "main": "src/main.js",
   "scripts": {
     "dev": "electron .",
-    "build:css": "assets/tailwind/tailwindcss -i ./src/tailwind.css -o ./src/styles.css --minify",
+    "build:css": "tailwindcss -i ./src/tailwind.css -o ./src/styles.css --minify",
     "build": "npm run build:css && electron-builder"
   },
   "repository": {
@@ -35,7 +35,8 @@
   "devDependencies": {
     "electron": "40.4.0",
     "electron-builder": "^26.7.0",
-    "tailwindcss": "4.2.1"
+    "tailwind": "^3.1.0",
+    "tailwindcss": "^3.4.17"
   },
   "build": {
     "appId": "studio.staxdash.snapboard",
