@@ -1,7 +1,8 @@
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron');
 const path = require('path');
 const Store = require('electron-store').default;
-const { initUpdater } = require('./updater');
+const { initUpdater } = require('./modules/updater');
+const pkg = require('../package.json');
 
 const store = new Store({
   name: 'snapboard-data',
@@ -22,8 +23,9 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width,
     height,
-    frame: false,
-    transparent: false, // will turn true for production (Linux doesn't support transparent + click-through)
+    frame: true,
+    transparent: true, // will turn true for production (Linux doesn't support transparent + click-through)
+    hasShadow: true,
     resizable: true,
     show: false,
     backgroundColor: '#1e1e1e', // fallback for transparent
@@ -100,4 +102,16 @@ app.whenReady().then(() => {
 // Quit on all windows closed (except macOS)
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
+});
+
+// -----------------------------
+// VERSION INFO
+// -----------------------------
+
+ipcMain.handle("get-version", async () => {
+  return {
+    version: pkg.version,
+    stage: pkg.buildStage,
+    date: pkg.releaseDate,
+  };
 });

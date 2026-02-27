@@ -1,16 +1,19 @@
 {
   "name": "snapboard",
-  "version": "0.1.0",
+  "version": "0.1.2",
+  "buildStage": "alpha",
+  "releaseDate": "2026-02-27",
   "description": "A minimal dock-based kanban board and companion app to SnapDock.",
   "author": {
     "name": "StaxDash Studio",
     "email": "zforddev@gmail.com"
   },
+  "private": true,
   "license": "MIT",
   "main": "src/main.js",
   "scripts": {
     "dev": "electron .",
-    "build:css": "tailwindcss -i ./src/tailwind.css -o ./src/styles.css --minify",
+    "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/styles.css --minify",
     "build": "npm run build:css && electron-builder"
   },
   "repository": {

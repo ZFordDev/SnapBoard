@@ -1,34 +1,35 @@
 # SnapBoard
 
-A minimal, kanban board designed as a companion to **SnapDock**.  
-SnapBoard uses a dock‑based frameless UI with a glass panel that slides out from any screen edge.
+A minimal kanban‑style companion app for **SnapDock**. SnapBoard lives in your dock, slides out from any screen edge, and provides a lightweight board for notes, files, and quick tasks.
 
-Built for speed, clarity, and everyday workflow.
-
-> [!NOTE]
-> SnapBoard is currently in active development.  
-> It is not ready for general use and should be considered **experimental**.
+This repository has reached **Alpha** status: the core kanban workflow is complete, including multi‑board support and update delivery. The app is usable on Linux and Windows, but you may encounter minor bugs and occasional state resets as the experience is refined.
 
 ---
 
-## ✨ Features (Planned & In Progress)
+> [!NOTE]
+> SnapBoard is still early in development. Waiting for the Beta milestone is recommended.  
+> The visual style represents the direction planned for SnapDock V3.
 
-- Frameless dock with draggable region  
-- Smooth slide‑out animation  
+## Features (Alpha)
+
+- Slide‑out panel animation  
 - Dynamic columns (default 7, expandable up to 32)  
 - Drag‑and‑drop cards  
+- Add, remove, and rename columns and cards (double‑click titles)  
+- Multiple boards: create, switch, rename, delete  
+- Persistent columns and cards via local storage  
 - File cards (stores file paths locally)  
 - Note cards (stored in SnapBoard’s local data directory)  
 - Custom header text  
 - Theme color options  
 - Local‑only storage  
-- Built‑in updater (GitHub Releases)
+- Built‑in updater (same system as SnapDock; currently untested)
 
 ---
 
-## 🧩 Philosophy
+## Philosophy
 
-SnapBoard is part of the **SnapDock ecosystem** — a family of tools built to be:
+SnapBoard is part of the **SnapDock ecosystem** — a set of tools designed to be:
 
 - Minimal  
 - Local‑first  
@@ -37,32 +38,41 @@ SnapBoard is part of the **SnapDock ecosystem** — a family of tools built to b
 - Beautiful  
 - Distraction‑free  
 
-Every component is designed to feel lightweight and responsive.
+Each component aims to feel lightweight and responsive.
 
 ---
 
-## 📦 Installation
+## Installation
 
-Download the latest release from the **Releases** page.
+Download the latest Alpha build from the **Releases → Alpha** section.
 
-Available for:
+Supported platforms:
 
 - **Linux** (`.deb`, AppImage)  
-- **Windows**  
-- **macOS** (coming soon)
+- **Windows** (`.exe` coming soon)  
+- **macOS** (coming soon; contributions welcome)
 
 ---
 
-## 🛠 Development
+## Development
+
+### Project Structure
+
+Most core logic is located in `src/modules`:
+
+- `file/` — board persistence, recent boards, autosave  
+- `markdown.js` — note card editing and rendering helpers  
+- `ui/` — UI building blocks (theme, editor state, resize, help, etc.)  
+- `updater.js` — entry points for the update system
+
+### Running in Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Tailwind v4 is preconfigured using the standalone binary located in `assets/tailwind/`.
-
-### Linux packaging (local testing)
+### Linux Packaging (Local Testing)
 
 To build and install the `.deb` package locally:
 
@@ -74,9 +84,11 @@ rm -rf dist/ \
   && snapboard
 ```
 
+_Built on Linux first._
+
 ---
 
-## 📄 License
+## License
 
 See `LICENSE` for details.
 
