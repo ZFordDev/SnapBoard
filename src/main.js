@@ -24,7 +24,7 @@ function createWindow() {
     width,
     height,
     frame: true,
-    transparent: true, // will turn true for production (Linux doesn't support transparent + click-through)
+    transparent: false, // stop trying to be transparent, it causes more issues than it's worth!
     hasShadow: true,
     resizable: true,
     show: false,

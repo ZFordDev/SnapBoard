@@ -1,8 +1,8 @@
 {
   "name": "snapboard",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "buildStage": "alpha",
-  "releaseDate": "2026-02-27",
+  "releaseDate": "2026-03-02",
   "description": "A minimal dock-based kanban board and companion app to SnapDock.",
   "author": {
     "name": "StaxDash Studio",
@@ -45,10 +45,12 @@
     "appId": "studio.staxdash.snapboard",
     "productName": "SnapBoard",
     "directories": {
-      "output": "dist"
+      "output": "dist",
+      "buildResources": "assets"
     },
     "files": [
       "src/**/*",
+      "assets/**/*",
       "package.json"
     ],
     "publish": [
@@ -68,7 +70,7 @@
         }
       ],
       "artifactName": "SnapBoard-Setup.exe",
-      "icon": "src/assets/icon.ico"
+      "icon": "logo.ico"
     },
     "linux": {
       "target": [
@@ -76,7 +78,7 @@
         "AppImage"
       ],
       "category": "Utility",
-      "icon": "src/assets/icons"
+      "icon": "logo"
     },
     "appImage": {
       "artifactName": "SnapBoard.AppImage"
