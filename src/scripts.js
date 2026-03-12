@@ -1,7 +1,13 @@
-import { initBoard, setVersionTag } from './modules/ui/board.js';
+// src/scripts.js
 
-// main entrypoint - no logic here, just initialization calls
-window.addEventListener('DOMContentLoaded', () => {
+import { initState } from "./state/boardState.js";
+import { initBoard } from "./ui/board.js";
+import { initSidebar } from "./ui/sidebar.js";
+import { initUpdaterUI } from "./ui/updaterUI.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await initState(); 
+  initSidebar();
   initBoard();
-  setVersionTag(document.getElementById('versionTag'));
+  initUpdaterUI();
 });

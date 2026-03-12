@@ -1,90 +1,90 @@
 {
   "name": "snapboard",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "buildStage": "alpha",
-  "releaseDate": "2026-03-02",
+  "releaseDate": "2026-03-09",
+
   "description": "A minimal dock-based kanban board and companion app to SnapDock.",
-  "author": {
-    "name": "StaxDash Studio",
-    "email": "zforddev@gmail.com"
-  },
-  "private": true,
+  "author": "ZFordDev",
   "license": "MIT",
-  "main": "src/main.js",
+  "private": true,
+
+  "main": "main.js",
+
   "scripts": {
-    "dev": "electron .",
+    "start": "electron .",
     "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/styles.css --minify",
-    "build": "npm run build:css && electron-builder"
+    "bundle": "node bundle.js",
+    "build": "npm run build:css && npm run bundle && electron-builder"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ZFordDev/SnapBoard.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ZFordDev/SnapBoard/issues"
-  },
-  "homepage": "https://github.com/ZFordDev/SnapBoard#readme",
-  "keywords": [
-    "kanban",
-    "board",
-    "local-first",
-    "SnapDock",
-    "SnapBoard",
-    "productivity"
-  ],
+
   "dependencies": {
-    "electron-store": "^9.0.0"
+    "electron-log": "^5.4.3",
+    "electron-updater": "6.7.3",
+    "marked": "^12.0.0"
   },
+
   "devDependencies": {
-    "electron": "40.4.0",
+    "electron": "^40.7.0",
     "electron-builder": "^26.7.0",
-    "tailwind": "^3.1.0",
+    "esbuild": "^0.27.3",
     "tailwindcss": "^3.4.17"
   },
+
   "build": {
-    "appId": "studio.staxdash.snapboard",
-    "productName": "SnapBoard",
-    "directories": {
-      "output": "dist",
-      "buildResources": "assets"
-    },
-    "files": [
-      "src/**/*",
-      "assets/**/*",
-      "package.json"
-    ],
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "ZFordDev",
-        "repo": "SnapBoard"
-      }
-    ],
-    "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64"
-          ]
-        }
-      ],
-      "artifactName": "SnapBoard-Setup.exe",
-      "icon": "logo.ico"
-    },
-    "linux": {
-      "target": [
-        "deb",
-        "AppImage"
-      ],
-      "category": "Utility",
-      "icon": "logo"
-    },
-    "appImage": {
-      "artifactName": "SnapBoard.AppImage"
-    },
-    "deb": {
-      "artifactName": "snapboard_${version}_amd64.deb"
+  "appId": "studio.zforddev.snapboard",
+  "productName": "SnapBoard",
+
+  "directories": {
+    "output": "dist",
+    "buildResources": "assets"
+  },
+
+  "files": [
+    "dist/**/*",
+    "src/preload.js",
+    "styles/**/*",
+    "src/**/*",
+    "index.html",
+    "main.js",
+    "package.json"
+  ],
+
+  "extraResources": [
+    {
+      "from": "assets/",
+      "to": "assets/",
+      "filter": ["**/*"]
     }
+  ],
+
+  "win": {
+    "target": "nsis",
+    "icon": "logo.ico",
+    "artifactName": "SnapBoard-Setup.exe"
+  },
+
+  "linux": {
+    "target": ["deb", "AppImage"],
+    "category": "Utility",
+    "icon": "logo"
+  },
+
+  "appImage": {
+    "artifactName": "SnapBoard.AppImage"
+  },
+
+  "deb": {
+    "artifactName": "snapboard_${version}_amd64.deb"
+  },
+
+  "publish": [
+    {
+      "provider": "github",
+      "owner": "ZFordDev",
+      "repo": "SnapBoard",
+      "channel": "alpha"
+      }
+    ]
   }
 }
