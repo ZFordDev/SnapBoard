@@ -1,7 +1,7 @@
-// src/interactions/boardInteractions.js
 import * as state from "../state/boardState.js";
 import { byId, delegate } from "../utils/dom.js";
 import { renderBoard } from "../ui/board.js";
+import * as cardEditor from "../ui/cardEditor.js";
 
 // -----------------------------
 // COLUMN INTERACTIONS
@@ -9,7 +9,6 @@ import { renderBoard } from "../ui/board.js";
 export function setupColumnInteractions() {
   const boardEl = byId("board");
 
-  // Delete column
   delegate(boardEl, ".delete-column", "click", async (e, btn) => {
     const colHeader = btn.closest(".flex").querySelector("[data-col-id]");
     const colId = colHeader?.getAttribute("data-col-id");
@@ -22,7 +21,6 @@ export function setupColumnInteractions() {
     renderBoard();
   });
 
-  // Rename column
   delegate(boardEl, ".column-header", "dblclick", async (e, header) => {
     const colId = header.getAttribute("data-col-id");
     const newName = prompt("Rename column:", header.textContent.trim());
@@ -39,8 +37,8 @@ export function setupColumnInteractions() {
 export function setupCardInteractions() {
   const boardEl = byId("board");
 
-  // Delete card
   delegate(boardEl, ".delete-card", "click", async (e, btn) => {
+    e.stopPropagation();
     const cardEl = btn.closest(".card");
     const cardId = cardEl?.id;
     if (!cardId) return;
@@ -56,22 +54,41 @@ export function setupCardInteractions() {
     renderBoard();
   });
 
-  // Edit card (MVP: simple prompt)
   delegate(boardEl, ".card", "dblclick", async (e, cardEl) => {
     const cardId = cardEl.id;
     const colEl = cardEl.closest(".drop-zone");
     const colId = colEl?.getAttribute("data-col-id");
+    if (!colId || !cardId) return;
 
-    const board = state.getCurrentBoard();
-    const col = board.columns.find(c => c.id === colId);
-    const card = col.cards.find(c => c.id === cardId);
+    const card = state.getCard(colId, cardId);
+    if (!card) return;
 
-    const newText = prompt("Edit card text:", card.text);
-    if (!newText) return;
+    cardEditor.openExistingCardEditor(colId, card);
+  });
 
-    // Replace card text
-    card.text = newText;
-    await state.save(); // direct save call inside state module
+  delegate(boardEl, ".card", "dragover", (e, cardEl) => {
+    if (!e.dataTransfer.types.includes("Files")) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "copy";
+  });
+
+  delegate(boardEl, ".card", "drop", async (e, cardEl) => {
+    e.preventDefault();
+    const files = Array.from(e.dataTransfer.files || []);
+    if (!files.length) return;
+
+    const file = files[0];
+    if (!file?.path) return;
+
+    const colEl = cardEl.closest(".drop-zone");
+    const colId = colEl?.getAttribute("data-col-id");
+    if (!colId) return;
+
+    await state.attachFileToCard(colId, cardEl.id, {
+      path: file.path,
+      name: file.name || file.path.split(/[/\\]/).pop() || "attached-file"
+    });
+
     renderBoard();
   });
 }
@@ -82,7 +99,6 @@ export function setupCardInteractions() {
 export function setupBoardControls() {
   const boardNameEl = byId("board-name");
 
-  // Rename board
   if (boardNameEl) {
     boardNameEl.addEventListener("dblclick", async () => {
       const board = state.getCurrentBoard();
