@@ -5,7 +5,11 @@
   "releaseDate": "2026-05-04",
 
   "description": "A minimal dock-based kanban board and companion app to SnapDock.",
-  "author": "ZFordDev",
+  "author": {
+    "name": "ZFordDev",
+    "email": "zforddev@gmail.com"
+  },
+
   "license": "MIT",
   "private": true,
 
