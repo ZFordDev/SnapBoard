@@ -3,38 +3,54 @@
 A minimal, local‑first kanban companion for **SnapDock**.  
 SnapBoard lives in your dock, slides out from any screen edge, and gives you a lightweight board for notes, files, and quick tasks.
 
-This repository is currently in **Alpha**. The core kanban workflow is functional — multi‑board support, drag‑and‑drop, persistent state, and the update system are all in place — but the experience is still evolving. Expect rough edges and rapid iteration.
+SnapBoard is currently in **Alpha**.  
+The new card system (markdown editing, file attachments, JSON persistence) is now live, but still early and not yet security‑hardened. Expect rapid iteration as we move toward the first Beta milestone.
 
 ---
 
 > [!WARNING]
-> The current main branch is **in flux**.  
-> Card creation and editing are temporarily disabled while the new card module is being redesigned.  
-> For the closest working version, please check the **Releases** section.
+> SnapBoard is functional but **not yet secure**.  
+> File paths, markdown content, and board data are stored locally without sandboxing or validation.  
+> Hardening and safety layers will be added before the Beta release.
 
 ---
 
-
 > [!NOTE]
-> SnapBoard is early in development. A Beta milestone will bring a stable UI, card editor, and full SnapDock integration.  
-> The visual style reflects the direction planned for SnapDock V3.
+> v0.2.4 introduces the new card architecture:
+> - Markdown editing + preview  
+> - File drag‑and‑drop (stores absolute paths)  
+> - New editor modal  
+> - JSON persistence with migration  
+> - Clean UI/logic separation  
+>
+> This is the foundation for the upcoming Beta UI and SnapDock integration.
 
 ---
 
 ## Features (Alpha)
 
+### ✔ Core
 - Slide‑out panel UI  
-- Dynamic columns (default 7, expandable up to 32)  
+- Dynamic columns (default 7, up to 32)  
 - Drag‑and‑drop cards  
-- Add, remove, rename columns and cards  
 - Multiple boards (create, switch, rename, delete)  
-- Persistent state via local storage  
-- File cards (stores file paths locally)  
-- Note cards (stored in SnapBoard’s data directory)  
-- Custom header text  
-- Theme color options  
-- Local‑only storage  
-- Built‑in updater (shared with SnapDock; currently untested)
+- Persistent state (JSON‑based session storage)  
+
+### ✔ New in v0.2.4
+- Markdown card editor  
+- Live preview mode  
+- File attachment via drag‑and‑drop  
+- New card data model  
+- Debounced JSON persistence  
+- Migration for older card formats  
+
+### ⚠ Early / Not Yet Hardened
+- No file‑path sandboxing  
+- No markdown sanitization  
+- No permission model  
+- No secure workspace isolation  
+
+These will be addressed before Beta.
 
 ---
 
@@ -55,7 +71,7 @@ Every component aims to feel lightweight, responsive, and intentional.
 
 ## Installation
 
-Download the latest Alpha build from the **Releases** page.
+Download the latest **Alpha** build from the Releases page.
 
 Supported platforms:
 
@@ -79,15 +95,30 @@ npm run dev
 ```bash
 rm -rf dist/ \
   && npm run build \
-  && sudo dpkg -i dist/snapboard_1.0.0_amd64.deb \
+  && sudo dpkg -i dist/snapboard_${version}_amd64.deb \
   && hash -r \
   && snapboard
 ```
 
 ---
 
+## Roadmap
+
+### 🔜 Beta Milestone
+- Security hardening (file paths, markdown sanitization)  
+- Stable card editor  
+- Column improvements  
+- SnapDock workspace export  
+- UI polish + animations  
+
+### Future
+- Multi‑file attachments  
+- Tags + search  
+- Board templates  
+- SnapDock V3 integration  
+
+---
+
 ## License
 
 See `LICENSE` for details.
-
----
