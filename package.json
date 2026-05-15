@@ -1,8 +1,8 @@
 {
   "name": "snapboard",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "buildStage": "alpha",
-  "releaseDate": "2026-05-04",
+  "releaseDate": "2026-05-15",
 
   "description": "A minimal dock-based kanban board and companion app to SnapDock.",
   "author": {
