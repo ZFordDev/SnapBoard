@@ -72,7 +72,7 @@ function renderColumn(col) {
         <h3 class="column-header font-semibold text-slate-800 text-sm" data-col-id="${col.id}">
           ${col.title}
         </h3>
-        <button class="delete-column text-red-500 hover:text-red-700" title="Delete column">�</button>
+        <button class="delete-column text-red-500 hover:text-red-700" title="Delete column">🗑️</button>
       </div>
       <span class="text-[10px] font-bold bg-black/5 px-2 py-0.5 rounded text-slate-500">
         ${col.cards.length}
@@ -116,7 +116,7 @@ function renderCard(card, colId) {
   cardEl.innerHTML = `
     <div class="flex items-start justify-between mb-3">
       <span class="text-[10px] uppercase tracking-wider ${badgeClass} font-bold">${badgeLabel}</span>
-      <button class="delete-card opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-700 transition-all" title="Delete card">�</button>
+      <button class="delete-card opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-700 transition-all" title="Delete card">🗑️</button>
     </div>
     <div class="mb-3">
       <h4 class="text-sm font-semibold text-slate-900 mb-2">${card.title}</h4>
