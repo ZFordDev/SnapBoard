@@ -1,51 +1,75 @@
-# Node
+# ────────────────────────────────────────────────
+#  Node & Dependencies
+# ────────────────────────────────────────────────
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Electron Builder output
+# ────────────────────────────────────────────────
+#  Build / Distribution
+# ────────────────────────────────────────────────
 dist/
 build/
 out/
+*.asar
+*.asar.unpacked
 
-# Tailwind output
+# Electron Builder
+electron-builder-cache/
+builder-debug.yml
+builder-effective-config.yaml
+
+# ────────────────────────────────────────────────
+#  Tailwind Output
+# ────────────────────────────────────────────────
 src/styles.css
 
-# Local environment
+# ────────────────────────────────────────────────
+#  Environment Files
+# ────────────────────────────────────────────────
 .env
 .env.local
 .env.*.local
 
-# OS junk
+# ────────────────────────────────────────────────
+#  OS Junk
+# ────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Logs
+# ────────────────────────────────────────────────
+#  Logs
+# ────────────────────────────────────────────────
 logs/
 *.log
 *.log.*
 
-# Editor junk
+# ────────────────────────────────────────────────
+#  Editor / IDE
+# ────────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
 
-# Electron cache
-*.asar
-*.asar.unpacked
-
-# SnapBoard local data (electron-store)
+# ────────────────────────────────────────────────
+#  App Data (electron-store)
+# ────────────────────────────────────────────────
 snapboard-data.json
 snapboard-data/*
 userdata/
 userdata.json
 
-# Temporary files
+# ────────────────────────────────────────────────
+#  Temporary Files
+# ────────────────────────────────────────────────
 *.tmp
 *.temp
 
-# Release artifacts (just in case)
+# ────────────────────────────────────────────────
+#  Release Artifacts
+# ────────────────────────────────────────────────
 SnapBoard-Setup.exe
 SnapBoard-Setup.exe.blockmap
 SnapBoard.AppImage
@@ -56,3 +80,8 @@ latest-linux.yml
 # GitHub Actions artifacts
 *.zip
 *.7z
+
+# ────────────────────────────────────────────────
+#  Ecosystem Standards
+# ────────────────────────────────────────────────
+temp_notes.md
