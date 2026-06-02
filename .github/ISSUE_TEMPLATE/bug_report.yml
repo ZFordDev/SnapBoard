@@ -1,0 +1,50 @@
+name: Bug Report
+description: Report a reproducible issue in SnapBoard
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve SnapBoard!  
+        Please provide as much detail as possible so we can reproduce the issue.
+
+  - type: input
+    id: version
+    attributes:
+      label: SnapBoard Version
+      placeholder: e.g., 0.4.2, 0.5.0-pre
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      placeholder: e.g., Windows 11, Ubuntu 26, Fedora 40
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: List each step clearly.
+      placeholder: |
+        1. Open SnapBoard
+        2. Create a new board
+        3. Add a card and drag it to another column
+        4. Board layout resets unexpectedly
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      placeholder: Describe what you expected to happen.
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      placeholder: Describe what actually happened.
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Screenshots (optional)
+      description: Attach anything helpful.
