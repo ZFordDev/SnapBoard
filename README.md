@@ -226,8 +226,8 @@ SnapBoard/
 ## Screenshots
 
 <p align="center">
-  <img src="assets/screenshots/snapboard-light.png" width="45%" />
-  <img src="assets/screenshots/snapboard-dark.png" width="45%" />
+  <img src="assets/screenshots/snapboard-linux.png" width="45%" />
+  <img src="assets/screenshots/snapboard-windows.png" width="45%" />
 </p>
 
 ---
