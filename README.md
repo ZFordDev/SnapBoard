@@ -155,8 +155,8 @@ Most users should install SnapBoard using the prebuilt packages available on the
 
 **AppImage**
 ```bash
-chmod +x SnapBoard-Setup.AppImage
-./SnapBoard-Setup.AppImage
+chmod +x SnapBoard.AppImage
+./SnapBoard.AppImage
 ```
 > If your distro blocks AppImages, install FUSE or use the `.deb` package instead.
 
@@ -164,7 +164,7 @@ chmod +x SnapBoard-Setup.AppImage
 - Double‑click to install via your Software Center  
   **or**
 ```bash
-sudo apt install ./SnapBoard-Setup.deb
+sudo apt install ./SnapBoard_{version}_amd64.deb
 ```
 
 No additional runtimes or dependencies are required.
