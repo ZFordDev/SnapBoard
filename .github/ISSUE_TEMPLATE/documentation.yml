@@ -1,0 +1,9 @@
+name: Documentation Update
+description: Suggest improvements to documentation or examples
+labels: [documentation]
+body:
+  - type: textarea
+    id: update
+    attributes:
+      label: What needs to be updated?
+      placeholder: Describe the missing, unclear, or incorrect documentation.
