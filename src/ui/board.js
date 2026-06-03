@@ -5,6 +5,7 @@ import * as cardEditor from "./cardEditor.js";
 import { setupColumnInteractions, setupCardInteractions } from "../interactions/boardInteractions.js";
 import { initDragAndDrop } from "../interactions/dragDrop.js";
 import { marked } from "marked";
+import { sanitizeHTML, escapeHtml } from "../utils/sanitize.js";
 
 let boardEl;
 let boardNameEl;
@@ -70,7 +71,7 @@ function renderColumn(col) {
     <div class="flex items-center justify-between mb-4 px-1">
       <div class="flex items-center gap-2">
         <h3 class="column-header font-semibold text-slate-800 text-sm" data-col-id="${col.id}">
-          ${col.title}
+          ${escapeHtml(col.title)}
         </h3>
         <button class="delete-column text-red-500 hover:text-red-700" title="Delete column">🗑️</button>
       </div>
@@ -119,12 +120,12 @@ function renderCard(card, colId) {
       <button class="delete-card opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-700 transition-all" title="Delete card">🗑️</button>
     </div>
     <div class="mb-3">
-      <h4 class="text-sm font-semibold text-slate-900 mb-2">${card.title}</h4>
+      <h4 class="text-sm font-semibold text-slate-900 mb-2">${escapeHtml(card.title)}</h4>
       <div class="text-sm text-slate-700 leading-relaxed prose prose-sm max-w-none">
-        ${marked.parse(card.body || "")}
+        ${sanitizeHTML(marked.parse(card.body || ""))}
       </div>
     </div>
-    ${card.file ? `<div class="mt-3 rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">Attached file: ${card.file.name}</div>` : ""}
+    ${card.file ? `<div class="mt-3 rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">Attached file: ${escapeHtml(card.file.name)}</div>` : ""}
   `;
 
   return cardEl;

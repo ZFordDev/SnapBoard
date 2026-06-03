@@ -73,10 +73,22 @@ ipcMain.handle("get-version", async () => {
 // -----------------------------
 // STORAGE (JSON FILES)
 // -----------------------------
+function getStorageFilePath(key) {
+  const safeKey = path.basename(String(key));
+  const dir = path.join(app.getPath("userData"), "snapboard");
+  const filePath = path.resolve(dir, `${safeKey}.json`);
+  const resolvedDir = path.resolve(dir);
+
+  if (!filePath.startsWith(`${resolvedDir}${path.sep}`)) {
+    throw new Error("Invalid storage key");
+  }
+
+  return { dir, filePath };
+}
+
 ipcMain.handle("storage:load", async (_, key) => {
   try {
-    const dir = path.join(app.getPath("userData"), "snapboard");
-    const filePath = path.join(dir, `${key}.json`);
+    const { filePath } = getStorageFilePath(key);
 
     if (!fs.existsSync(filePath)) return null;
 
@@ -90,8 +102,7 @@ ipcMain.handle("storage:load", async (_, key) => {
 
 ipcMain.handle("storage:save", async (_, key, data) => {
   try {
-    const dir = path.join(app.getPath("userData"), "snapboard");
-    const filePath = path.join(dir, `${key}.json`);
+    const { dir, filePath } = getStorageFilePath(key);
 
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
