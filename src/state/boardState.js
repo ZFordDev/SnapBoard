@@ -1,6 +1,7 @@
 // src/state/boardState.js
 import { nanoid } from "../utils/id.js";
 import { loadJSON, saveJSON } from "../utils/storage.js";
+import { sanitizeAttachment } from "../utils/attachment.js";
 
 const STORAGE_KEY = "snapboard-data";
 const SAVE_DEBOUNCE_MS = 250;
@@ -88,11 +89,8 @@ function normalizeCard(card) {
       ? card.text.split("\n")[0].slice(0, 50)
       : "Untitled Card");
 
-  const fileData = card.file
-    ? { path: card.file.path, name: card.file.name }
-    : card.path
-    ? { path: card.path, name: card.name || card.path.split(/[/\\]/).pop() }
-    : null;
+  const fileData = sanitizeAttachment(card.file)
+    || (card.path ? sanitizeAttachment({ path: card.path, name: card.name }) : null);
 
   return {
     id: card.id || nanoid(),
@@ -216,7 +214,7 @@ export async function addCard(colId, card) {
     id: nanoid(),
     title: card.title || "Untitled Card",
     body: card.body || "",
-    file: card.file ? { path: card.file.path, name: card.file.name } : null,
+    file: sanitizeAttachment(card.file),
     createdAt: now,
     updatedAt: now
   });
@@ -236,7 +234,13 @@ export async function updateCard(colId, cardId, updates) {
 
   card.title = updates.title ?? card.title;
   card.body = updates.body ?? card.body;
-  card.file = updates.file === null ? null : updates.file ?? card.file;
+
+  if (updates.file === null) {
+    card.file = null;
+  } else if (updates.file) {
+    card.file = sanitizeAttachment(updates.file);
+  }
+
   card.updatedAt = Date.now();
 
   scheduleSave();
@@ -244,9 +248,7 @@ export async function updateCard(colId, cardId, updates) {
 
 export async function attachFileToCard(colId, cardId, file) {
   return updateCard(colId, cardId, {
-    file: file
-      ? { path: file.path, name: file.name }
-      : null
+    file: file ? sanitizeAttachment(file) : null
   });
 }
 

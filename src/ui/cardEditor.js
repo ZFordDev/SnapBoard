@@ -1,6 +1,8 @@
 import * as state from "../state/boardState.js";
 import { el } from "../utils/dom.js";
 import { marked } from "marked";
+import { sanitizeHTML, escapeHtml } from "../utils/sanitize.js";
+import { sanitizeAttachment } from "../utils/attachment.js";
 
 let modalContainer;
 let modalDialog;
@@ -133,7 +135,7 @@ function openEditor({ colId, card }) {
 
   titleInput.value = card?.title || "";
   bodyInput.value = card?.body || "";
-  attachedFile = card?.file ? { ...card.file } : null;
+  attachedFile = sanitizeAttachment(card?.file) || null;
   updateAttachedFileInfo();
   clearError();
   setEditorMode("edit");
@@ -198,7 +200,7 @@ function updatePreview() {
 
   try {
     previewPanel.innerHTML = markdown.trim()
-      ? marked.parse(markdown)
+      ? sanitizeHTML(marked.parse(markdown))
       : "<p class='text-sm text-slate-500'>Start typing markdown to see a live preview.</p>";
     clearError();
   } catch (error) {
@@ -217,7 +219,7 @@ function updateAttachedFileInfo() {
     <div class="flex items-center justify-between gap-3 rounded-2xl bg-slate-100 px-3 py-2">
       <div class="flex items-center gap-2">
         <span class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-slate-200 text-slate-700">📎</span>
-        <span class="truncate text-sm text-slate-700">${attachedFile.name}</span>
+        <span class="truncate text-sm text-slate-700">${escapeHtml(attachedFile.name)}</span>
       </div>
       <button type="button" class="remove-attachment text-xs font-semibold text-blue-600 hover:text-blue-800">Remove</button>
     </div>
@@ -257,11 +259,17 @@ function onFileDrop(event) {
     return;
   }
 
-  attachedFile = {
+  const attachment = sanitizeAttachment({
     path: file.path,
     name: file.name || file.path.split(/[/\\]/).pop() || "attached-file"
-  };
+  });
 
+  if (!attachment) {
+    showError("This file path is not allowed for security reasons.");
+    return;
+  }
+
+  attachedFile = attachment;
   updateAttachedFileInfo();
   clearError();
 }
