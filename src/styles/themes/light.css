@@ -1,0 +1,50 @@
+body.light-theme {
+  --workspace-bg: #f0f2f5;
+  --toolbar-bg:   #f5f5f5;
+  --sidebar-bg:   #fafafa;
+  --footer-bg:    #f5f5f5;
+
+  --editor-bg:    #ffffff;
+  --editor-text:  #111111;
+  --editor-text-secondary: #333333;
+
+  --border-color: #ddd;
+
+  --code-bg:      #f6f8fa;
+  --code-text:    #24292e;
+  --inline-code-bg: #eef1f4;
+
+  --note-bg:        #e7f3ff;
+  --note-accent:    #2196f3;
+
+  --warning-bg:     #fff3cd;
+  --warning-accent: #ff9800;
+
+  --tip-bg:         #e8f5e9;
+  --tip-accent:     #4caf50;
+
+  --table-header-bg: #f5f5f5;
+  --table-row-bg:    #ffffff;
+
+  --hljs-bg: #f6f8fa;
+  --hljs-text: #24292e;
+  --hljs-comment: #6a737d;
+  --hljs-keyword: #d73a49;
+  --hljs-number: #005cc5;
+  --hljs-string: #032f62;
+  --hljs-title: #6f42c1;
+  --hljs-variable: #e36209;
+  --hljs-addition-bg: #f0fff4;
+  --hljs-addition-text: #22863a;
+  --hljs-deletion-bg: #ffeef0;
+  --hljs-deletion-text: #b31d28;
+
+  --tab-bar-bg:    #f5f5f5;
+  --tab-idle-bg:   #e8e8e8;
+  --tab-active-bg: #ffffff;
+  --tab-text:      var(--editor-text-secondary);
+  --tab-accent:    var(--note-accent);
+  --tab-border:    var(--border-color);
+
+  --footer-bg-glass: rgba(255, 255, 255, 0.7);
+}

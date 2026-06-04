@@ -1,0 +1,134 @@
+/* Sidebar Container */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--tab-border);
+  width: 250px;
+  min-width: 180px;
+  max-width: 400px;
+  user-select: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 20;
+}
+
+#snap-sidebar.sidebar-open {
+  transform: translateX(0);
+}
+
+/* Section Header */
+.sidebar h3 {
+  margin: 0;
+  padding: 12px 14px 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--tab-text);
+  opacity: 0.6;
+}
+
+/* Navigation List */
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation Item */
+.sidebar li {
+  padding: 8px 14px;
+  margin: 2px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--tab-text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+/* Hover */
+.sidebar li:hover {
+  background: var(--tab-idle-bg);
+  color: var(--editor-text);
+}
+
+/* Active */
+.sidebar li.active {
+  background: var(--tab-active-bg);
+  color: var(--editor-text);
+  font-weight: 500;
+}
+
+/* Footer */
+.sidebar-footer {
+  padding: 14px;
+  border-top: 1px solid var(--tab-border);
+  background: var(--footer-bg-glass);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+/* Optional: Fade-out at bottom */
+.sidebar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to top, var(--sidebar-bg), transparent);
+  pointer-events: none;
+}
+.sidebar {
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+}
+
+.sidebar.sidebar-open {
+  transform: translateX(0);
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 20px; /* breathing room above footer */
+}
+.sidebar-footer {
+  margin-top: auto;
+}
+
+/* Header container (minimal, no title) */
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 12px;
+}
+
+/* Close button */
+.sidebar-close {
+  background: transparent;
+  border: none;
+  color: var(--tab-text);
+  opacity: 0.6;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.sidebar-close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.08);
+}

@@ -20,31 +20,33 @@ export function initSidebar() {
   // Hover open
   if (triggerZoneEl) {
     triggerZoneEl.addEventListener("mouseenter", () => {
-      sidebarEl.classList.add("open");
+      sidebarEl.classList.add("sidebar-open");
     });
   }
 
   // Menu button open
   if (menuBtnEl) {
     menuBtnEl.addEventListener("click", () => {
-      sidebarEl.classList.add("open");
+      sidebarEl.classList.add("sidebar-open");
     });
   }
 
   // Close button
   if (closeBtnEl) {
     closeBtnEl.addEventListener("click", () => {
-      sidebarEl.classList.remove("open");
+      sidebarEl.classList.remove("sidebar-open");
     });
   }
 
   // Click outside to close
   document.addEventListener("click", (e) => {
-    if (!sidebarEl.classList.contains("open")) return;
+    if (!sidebarEl.classList.contains("sidebar-open")) return;
 
-    const clickedInside = sidebarEl.contains(e.target) || menuBtnEl.contains(e.target);
+    const clickedInside =
+      sidebarEl.contains(e.target) || menuBtnEl.contains(e.target);
+
     if (!clickedInside) {
-      sidebarEl.classList.remove("open");
+      sidebarEl.classList.remove("sidebar-open");
     }
   });
 }
