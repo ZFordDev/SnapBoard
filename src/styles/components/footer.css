@@ -1,0 +1,11 @@
+/* TODO: Footer layout rewrite
+   sb-footer-right will be fully defined when the footer
+   is converted away from Tailwind to custom layout classes. */
+/*
+.sb-footer-right {
+  margin-left: auto;
+  padding-right: 12px;
+  display: flex;
+  align-items: center;
+}
+*/
