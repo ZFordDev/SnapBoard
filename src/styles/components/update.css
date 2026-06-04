@@ -1,0 +1,21 @@
+/* Update badge */
+.sb-update-status {
+  font-size: 0.72rem;
+  color: var(--tab-text);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  margin-left: 8px;
+}
+
+/* Hidden when empty */
+.sb-update-status:empty {
+  display: none;
+}
+
+/* When update is available */
+.sb-update-status.ready {
+  color: var(--tab-accent);
+  opacity: 1;
+  font-weight: 600;
+  cursor: pointer;
+}

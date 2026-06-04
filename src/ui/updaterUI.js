@@ -7,6 +7,7 @@ import { byId } from "../utils/dom.js";
 export function initUpdaterUI() {
   const updateBtn = byId("update-btn");
   const versionEl = byId("version-info");
+  const updateBadge = byId("update-status");
 
   if (!updateBtn) return;
 
@@ -63,6 +64,13 @@ async function checkForUpdatesOnLaunch(updateBtn) {
   if (result?.updateAvailable) {
     updateBtn.classList.add("update-available");
     updateBtn.textContent = "Update Available";
+
+    // NEW: show badge
+    const badge = byId("update-status");
+    if (badge) {
+      badge.textContent = "Update";
+      badge.classList.add("ready");
+    }
   }
 }
 
