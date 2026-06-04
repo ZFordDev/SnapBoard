@@ -1,11 +1,57 @@
-/* TODO: Footer layout rewrite
-   sb-footer-right will be fully defined when the footer
-   is converted away from Tailwind to custom layout classes. */
-/*
+/* -----------------------------------------
+   SnapBoard Footer
+------------------------------------------ */
+
+.sb-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+
+  background: var(--footer-bg-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-top: 1px solid var(--tab-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  z-index: 9999;
+}
+
+.sb-footer-left,
+.sb-footer-center,
 .sb-footer-right {
-  margin-left: auto;
-  padding-right: 12px;
   display: flex;
   align-items: center;
+  gap: 12px;
 }
-*/
+
+/* Version text */
+.sb-version {
+  opacity: 0.6;
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+}
+
+/* Update badge */
+.sb-update-status {
+  font-size: 0.72rem;
+  color: var(--tab-text);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.sb-update-status:empty {
+  display: none;
+}
+
+.sb-update-status.ready {
+  color: var(--tab-accent);
+  opacity: 1;
+  font-weight: 600;
+  cursor: pointer;
+}
