@@ -1,0 +1,7 @@
+@import "./styles.css"; /* flagged to be removed once index.css is complete */
+
+/* Components */
+@import "./components/sidebar.css"; /* left hand sidebar **NEW** */
+
+/* Themes */
+@import "./themes/light.css"; /* light theme **NEW** basic for just sidebar */
