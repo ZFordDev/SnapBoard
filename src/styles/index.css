@@ -2,6 +2,7 @@
 
 /* Components */
 @import "./components/sidebar.css"; /* left hand sidebar **NEW** */
+@import "./buttons/standard.css"; /* basic button styles **NEW** */
 
 /* Themes */
 @import "./themes/light.css"; /* light theme **NEW** basic for just sidebar */

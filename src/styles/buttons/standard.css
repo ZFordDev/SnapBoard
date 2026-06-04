@@ -1,0 +1,32 @@
+.sb-btn {
+  width: 100%;
+  padding: 8px 10px;
+  background: var(--tab-idle-bg);
+  border: 1px solid var(--tab-border);
+  border-radius: 6px;
+  color: var(--tab-text);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Hover */
+.sb-btn:hover {
+  background: var(--tab-active-bg);
+  color: var(--editor-text);
+}
+
+/* Active (pressed) */
+.sb-btn:active {
+  opacity: 0.9;
+}
+
+/* Optional: icon styling */
+.sb-btn .icon {
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.8;
+}
