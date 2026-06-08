@@ -64,39 +64,40 @@ export function renderBoard() {
 // -----------------------------
 function renderColumn(col) {
   const colEl = el("div", {
-    class: "column-width flex flex-col h-full bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl p-4 shadow-sm"
+    class: "sb-column"
   });
 
   colEl.innerHTML = `
-    <div class="flex items-center justify-between mb-4 px-1">
-      <div class="flex items-center gap-2">
-        <h3 class="column-header font-semibold text-slate-800 text-sm" data-col-id="${col.id}">
+    <div class="sb-column-header">
+      <div class="sb-column-header-left">
+        <h3 class="column-header" data-col-id="${col.id}">
           ${escapeHtml(col.title)}
         </h3>
-        <button class="delete-column text-red-500 hover:text-red-700" title="Delete column">🗑️</button>
+        <button class="delete-column" title="Delete column">🗑️</button>
       </div>
-      <span class="text-[10px] font-bold bg-black/5 px-2 py-0.5 rounded text-slate-500">
+
+      <span class="sb-column-count">
         ${col.cards.length}
       </span>
     </div>
   `;
 
-  const dropZone = el("div", {
-    class: "flex-1 space-y-3 drop-zone rounded-2xl p-1 transition-colors border border-transparent",
+  const body = el("div", {
+    class: "sb-column-body",
     attrs: { "data-col-id": col.id }
   });
 
   col.cards.forEach((card) => {
-    dropZone.appendChild(renderCard(card, col.id));
+    body.appendChild(renderCard(card, col.id));
   });
 
   const addBtn = el("button", {
-    class: "w-full py-3 border border-dashed border-slate-300 rounded-xl text-slate-400 hover:text-blue-600 hover:border-blue-300 hover:bg-white/50 transition-all text-sm mt-2 font-medium",
+    class: "sb-add-card-btn",
     attrs: { "data-add-card": col.id },
     text: "+ Add Card"
   });
 
-  colEl.appendChild(dropZone);
+  colEl.appendChild(body);
   colEl.appendChild(addBtn);
 
   return colEl;

@@ -1,0 +1,95 @@
+/* Column container */
+.sb-column {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+
+  background: var(--panel-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--panel-border);
+
+  backdrop-filter: var(--glass-blur);
+}
+
+/* Header row */
+.sb-column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: var(--space-md);
+  padding: 0 var(--space-xs);
+}
+
+/* Title + delete button */
+.sb-column-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Card count badge */
+.sb-column-count {
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--badge-bg);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+}
+
+/* Card list container */
+.sb-column-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+/* Add Card button */
+.sb-add-card-btn {
+  width: 100%;
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+
+  border: 1px dashed var(--panel-border);
+  border-radius: var(--radius-md);
+
+  background: var(--glass-bg-soft); /* NEW */
+  color: var(--text-muted);
+
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sb-add-card-btn:hover {
+  background: var(--hover-bg);
+  border-color: var(--tab-accent);
+  color: var(--tab-accent);
+}
+
+
+:root {
+  --panel-bg: rgba(255, 255, 255, 0.08);
+  --panel-border: rgba(255, 255, 255, 0.12);
+  --badge-bg: rgba(0, 0, 0, 0.05);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+
+  --text-muted: rgba(255, 255, 255, 0.6);
+}
