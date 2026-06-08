@@ -27,82 +27,91 @@ export function initCardEditor() {
   if (modalContainer) return;
 
   modalContainer = el("div", {
-    class:
-      "hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 opacity-0 pointer-events-none transition-opacity duration-200 ease-out"
+    class: "sb-hidden sb-editor-overlay sb-editor-fade-out"
   });
 
   modalContainer.innerHTML = `
-    <div class="relative w-full max-w-4xl rounded-[36px] bg-white shadow-2xl overflow-hidden ring-1 ring-slate-200 transform scale-95 opacity-0 transition-all duration-200 ease-out">
-      <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200">
+    <div class="sb-editor-dialog sb-editor-exit">
+
+      <div class="sb-editor-header">
         <div>
-          <h2 id="card-editor-heading" class="text-lg font-semibold text-slate-900">Edit Card</h2>
-          <p class="text-sm text-slate-500">Markdown editor with preview and file attachments. Press Ctrl+S to save or Esc to close.</p>
+          <h2 id="card-editor-heading" class="sb-editor-title">Edit Card</h2>
+          <p class="sb-editor-subtitle">
+            Markdown editor with preview and file attachments. Press Ctrl+S to save or Esc to close.
+          </p>
         </div>
-        <button type="button" class="close-editor text-2xl leading-none text-slate-500 hover:text-slate-900">×</button>
+        <button type="button" class="close-editor sb-editor-close">×</button>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-4 p-6">
-        <div class="space-y-4">
-          <label class="block">
-            <span class="text-xs font-semibold text-slate-600">Card Title</span>
-            <input id="card-title-input" type="text" class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-blue-400" />
+
+      <div class="sb-editor-body">
+
+        <div class="sb-editor-left">
+          <label class="sb-editor-label">
+            <span class="sb-editor-label-text">Card Title</span>
+            <input id="card-title-input" type="text" class="sb-editor-input" />
           </label>
 
-          <label class="block">
-            <span class="text-xs font-semibold text-slate-600">Markdown Body</span>
-            <textarea id="card-body-input" rows="12" class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm font-mono resize-none outline-none focus:border-blue-400"></textarea>
+          <label class="sb-editor-label">
+            <span class="sb-editor-label-text">Markdown Body</span>
+            <textarea id="card-body-input" rows="12" class="sb-editor-textarea"></textarea>
           </label>
 
-          <div id="file-drop-area" class="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-4 text-sm text-slate-600 text-center transition-all">
+          <div id="file-drop-area" class="sb-editor-dropzone">
             Drag a file here to attach it to the card
           </div>
 
-          <div id="attached-file-info" class="min-h-[1.5rem] text-xs text-slate-500"></div>
-          <div id="editor-error-banner" class="hidden rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"></div>
+          <div id="attached-file-info" class="sb-editor-fileinfo"></div>
+          <div id="editor-error-banner" class="sb-editor-error sb-hidden"></div>
         </div>
 
-        <div class="space-y-4">
-          <div class="flex gap-2">
-            <button type="button" class="editor-mode-button active px-3 py-2 rounded-2xl text-sm font-medium bg-slate-100 text-slate-800" data-mode="edit">Edit</button>
-            <button type="button" class="editor-mode-button px-3 py-2 rounded-2xl text-sm font-medium text-slate-600 border border-slate-200 hover:text-slate-900" data-mode="preview">Preview</button>
+        <div class="sb-editor-right">
+          <div class="sb-editor-modebar">
+            <button type="button" class="editor-mode-button sb-editor-mode-active" data-mode="edit">Edit</button>
+            <button type="button" class="editor-mode-button sb-editor-mode-inactive" data-mode="preview">Preview</button>
           </div>
 
-          <div id="editor-preview" class="h-[420px] overflow-y-auto rounded-2xl border border-slate-200 bg-white p-4 prose prose-slate prose-headings:font-semibold prose-strong:text-slate-900 prose-blockquote:border-l-slate-300 prose-blockquote:text-slate-600 prose-code:rounded-lg prose-code:bg-slate-100 prose-code:px-1 prose-code:py-0.5 max-w-none"></div>
+          <div id="editor-preview" class="sb-editor-preview"></div>
         </div>
+
       </div>
 
-      <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-slate-200">
-        <button type="button" class="cancel-editor px-4 py-2 rounded-2xl border border-slate-300 text-slate-600">Cancel</button>
-        <button type="button" class="save-editor px-4 py-2 rounded-2xl bg-blue-600 text-white">Save</button>
+      <div class="sb-editor-footer">
+        <button type="button" class="cancel-editor sb-editor-btn-secondary">Cancel</button>
+        <button type="button" class="save-editor sb-editor-btn-primary">Save</button>
       </div>
+
     </div>
   `;
 
-  document.body.appendChild(modalContainer);
 
-  modalDialog = modalContainer.querySelector("div.relative");
-  titleInput = modalContainer.querySelector("#card-title-input");
-  bodyInput = modalContainer.querySelector("#card-body-input");
-  previewPanel = modalContainer.querySelector("#editor-preview");
-  fileDropArea = modalContainer.querySelector("#file-drop-area");
-  attachedFileInfo = modalContainer.querySelector("#attached-file-info");
-  errorBanner = modalContainer.querySelector("#editor-error-banner");
-  saveButton = modalContainer.querySelector(".save-editor");
-  cancelButton = modalContainer.querySelector(".cancel-editor");
-  closeButton = modalContainer.querySelector(".close-editor");
-  modeButtons = [...modalContainer.querySelectorAll(".editor-mode-button")];
+document.body.appendChild(modalContainer);
 
-  saveButton.addEventListener("click", onSaveClick);
-  cancelButton.addEventListener("click", closeEditor);
-  closeButton.addEventListener("click", closeEditor);
-  modeButtons.forEach((button) => button.addEventListener("click", onModeButtonClick));
-  bodyInput.addEventListener("input", updatePreview);
-  fileDropArea.addEventListener("dragover", onFileDragOver);
-  fileDropArea.addEventListener("dragleave", onFileDragLeave);
-  fileDropArea.addEventListener("drop", onFileDrop);
-  modalContainer.addEventListener("click", onContainerClick);
-  document.addEventListener("keydown", onDocumentKeydown);
+// semantic selector instead of Tailwind "relative"
+modalDialog = modalContainer.querySelector(".sb-editor-dialog");
 
-  setEditorMode("edit");
+titleInput = modalContainer.querySelector("#card-title-input");
+bodyInput = modalContainer.querySelector("#card-body-input");
+previewPanel = modalContainer.querySelector("#editor-preview");
+fileDropArea = modalContainer.querySelector("#file-drop-area");
+attachedFileInfo = modalContainer.querySelector("#attached-file-info");
+errorBanner = modalContainer.querySelector("#editor-error-banner");
+saveButton = modalContainer.querySelector(".save-editor");
+cancelButton = modalContainer.querySelector(".cancel-editor");
+closeButton = modalContainer.querySelector(".close-editor");
+modeButtons = [...modalContainer.querySelectorAll(".editor-mode-button")];
+
+saveButton.addEventListener("click", onSaveClick);
+cancelButton.addEventListener("click", closeEditor);
+closeButton.addEventListener("click", closeEditor);
+modeButtons.forEach((button) => button.addEventListener("click", onModeButtonClick));
+bodyInput.addEventListener("input", updatePreview);
+fileDropArea.addEventListener("dragover", onFileDragOver);
+fileDropArea.addEventListener("dragleave", onFileDragLeave);
+fileDropArea.addEventListener("drop", onFileDrop);
+modalContainer.addEventListener("click", onContainerClick);
+document.addEventListener("keydown", onDocumentKeydown);
+
+setEditorMode("edit");
 }
 
 export function setOnSave(callback) {
@@ -122,9 +131,14 @@ function openEditor({ colId, card }) {
     window.clearTimeout(closeTimeoutId);
     closeTimeoutId = null;
     isClosing = false;
-    modalContainer.classList.remove("hidden", "opacity-0", "pointer-events-none");
-    modalDialog.classList.remove("translate-y-4", "scale-95", "opacity-0");
-    modalDialog.classList.add("translate-y-0", "scale-100", "opacity-100");
+
+    // Remove exit animation classes
+    modalContainer.classList.remove("sb-hidden", "sb-editor-fade-out");
+    modalDialog.classList.remove("sb-editor-exit");
+
+    // Add entry animation classes
+    modalContainer.classList.add("sb-editor-fade-in");
+    modalDialog.classList.add("sb-editor-enter");
   }
 
   activeContext = {
@@ -136,32 +150,41 @@ function openEditor({ colId, card }) {
   titleInput.value = card?.title || "";
   bodyInput.value = card?.body || "";
   attachedFile = sanitizeAttachment(card?.file) || null;
+
   updateAttachedFileInfo();
   clearError();
   setEditorMode("edit");
   updatePreview();
 
-  modalContainer.classList.remove("hidden", "opacity-0", "pointer-events-none");
-  modalContainer.classList.add("opacity-100");
+  // Show modal
+  modalContainer.classList.remove("sb-hidden", "sb-editor-fade-out");
+  modalContainer.classList.add("sb-editor-fade-in");
+
   requestAnimationFrame(() => {
-    modalDialog.classList.remove("scale-95", "opacity-0");
-    modalDialog.classList.add("translate-y-0", "scale-100", "opacity-100");
+    modalDialog.classList.remove("sb-editor-exit");
+    modalDialog.classList.add("sb-editor-enter");
   });
 
   titleInput.focus();
 }
 
+
 function closeEditor() {
-  if (!modalContainer || modalContainer.classList.contains("hidden") || isClosing) return;
+  if (!modalContainer || modalContainer.classList.contains("sb-hidden") || isClosing) return;
   isClosing = true;
 
-  modalDialog.classList.add("translate-y-4", "scale-95", "opacity-0");
-  modalContainer.classList.add("opacity-0", "pointer-events-none");
-  modalContainer.classList.remove("opacity-100");
+  // Exit animation (semantic classes)
+  modalDialog.classList.add("sb-editor-exit");
+  modalContainer.classList.add("sb-editor-fade-out");
+  modalContainer.classList.remove("sb-editor-fade-in");
 
   closeTimeoutId = window.setTimeout(() => {
-    modalContainer.classList.add("hidden");
-    modalDialog.classList.remove("translate-y-0", "scale-100", "opacity-100");
+    modalContainer.classList.add("sb-hidden");
+
+    // Reset entry animation classes
+    modalDialog.classList.remove("sb-editor-enter");
+    modalDialog.classList.remove("sb-editor-exit");
+
     activeContext = null;
     attachedFile = null;
     isClosing = false;
@@ -178,12 +201,12 @@ function onModeButtonClick(event) {
 
 function setEditorMode(mode) {
   currentMode = mode;
+
   modeButtons.forEach((button) => {
     const isActive = button.getAttribute("data-mode") === mode;
-    button.classList.toggle("active", isActive);
-    button.classList.toggle("bg-slate-100", isActive);
-    button.classList.toggle("text-slate-800", isActive);
-    button.classList.toggle("text-slate-600", !isActive);
+
+    button.classList.toggle("sb-editor-mode-active", isActive);
+    button.classList.toggle("sb-editor-mode-inactive", !isActive);
   });
 
   if (mode === "preview") {
@@ -201,13 +224,15 @@ function updatePreview() {
   try {
     previewPanel.innerHTML = markdown.trim()
       ? sanitizeHTML(marked.parse(markdown))
-      : "<p class='text-sm text-slate-500'>Start typing markdown to see a live preview.</p>";
+      : "<p class='sb-editor-preview-empty'>Start typing markdown to see a live preview.</p>";
+
     clearError();
   } catch (error) {
-    previewPanel.innerHTML = "<p class='text-sm text-slate-500'>Unable to render preview.</p>";
+    previewPanel.innerHTML = "<p class='sb-editor-preview-empty'>Unable to render preview.</p>";
     showError("Invalid Markdown content. Please check your syntax.");
   }
 }
+
 
 function updateAttachedFileInfo() {
   if (!attachedFile) {
@@ -216,14 +241,15 @@ function updateAttachedFileInfo() {
   }
 
   attachedFileInfo.innerHTML = `
-    <div class="flex items-center justify-between gap-3 rounded-2xl bg-slate-100 px-3 py-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-slate-200 text-slate-700">📎</span>
-        <span class="truncate text-sm text-slate-700">${escapeHtml(attachedFile.name)}</span>
+    <div class="sb-attachment">
+      <div class="sb-attachment-row">
+        <span class="sb-attachment-icon">📎</span>
+        <span class="sb-attachment-name">${escapeHtml(attachedFile.name)}</span>
       </div>
-      <button type="button" class="remove-attachment text-xs font-semibold text-blue-600 hover:text-blue-800">Remove</button>
+      <button type="button" class="sb-attachment-remove remove-attachment">Remove</button>
     </div>
   `;
+
 
   const removeButton = attachedFileInfo.querySelector(".remove-attachment");
   if (removeButton) {
@@ -234,18 +260,19 @@ function updateAttachedFileInfo() {
   }
 }
 
+
 function onFileDragOver(event) {
   event.preventDefault();
-  fileDropArea.classList.add("border-blue-400", "bg-blue-50");
+  fileDropArea.classList.add("sb-drop-hover");
 }
 
 function onFileDragLeave() {
-  fileDropArea.classList.remove("border-blue-400", "bg-blue-50");
+  fileDropArea.classList.remove("sb-drop-hover");
 }
 
 function onFileDrop(event) {
   event.preventDefault();
-  fileDropArea.classList.remove("border-blue-400", "bg-blue-50");
+  fileDropArea.classList.remove("sb-drop-hover");
 
   const files = Array.from(event.dataTransfer.files || []);
   if (!files.length) {
@@ -281,7 +308,7 @@ function onContainerClick(event) {
 }
 
 function onDocumentKeydown(event) {
-  if (!modalContainer || modalContainer.classList.contains("hidden")) return;
+  if (!modalContainer || modalContainer.classList.contains("sb-hidden")) return;
 
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
     event.preventDefault();
@@ -297,13 +324,13 @@ function onDocumentKeydown(event) {
 function showError(message) {
   if (!errorBanner) return;
   errorBanner.textContent = message;
-  errorBanner.classList.remove("hidden");
+  errorBanner.classList.remove("sb-hidden");
 }
 
 function clearError() {
   if (!errorBanner) return;
   errorBanner.textContent = "";
-  errorBanner.classList.add("hidden");
+  errorBanner.classList.add("sb-hidden");
 }
 
 async function onSaveClick() {

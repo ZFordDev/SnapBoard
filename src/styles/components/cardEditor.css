@@ -1,0 +1,429 @@
+.sb-attachment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+
+  background: var(--panel-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.sb-attachment-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.sb-attachment-icon {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--panel-bg-alt);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+
+.sb-attachment-name {
+  font-size: 0.85rem;
+  color: var(--editor-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sb-attachment-remove {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--tab-accent);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.sb-attachment-remove:hover {
+  color: var(--tab-accent-hover);
+}
+/* Modal fade animations */
+.sb-editor-fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sb-editor-fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Modal dialog animations */
+.sb-editor-enter {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.sb-editor-exit {
+  transform: translateY(16px) scale(0.95);
+  opacity: 0;
+}
+
+/* Mode buttons */
+.sb-editor-mode-active {
+  background: var(--panel-bg);
+  color: var(--editor-text);
+}
+
+.sb-editor-mode-inactive {
+  color: var(--text-muted);
+}
+
+/* Preview empty state */
+.sb-editor-preview-empty {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+/* Fade animations */
+.sb-editor-fade-in {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s ease-out;
+}
+
+.sb-editor-fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-out;
+}
+
+/* Dialog entry/exit animations */
+.sb-editor-enter {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.sb-editor-exit {
+  transform: translateY(16px) scale(0.95);
+  opacity: 0;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+/* -------------------------------------------------------
+   CARD EDITOR — OVERLAY + DIALOG
+------------------------------------------------------- */
+
+.sb-editor-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--space-lg);
+
+  background: rgba(0, 0, 0, 0.45);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.2s ease-out;
+}
+
+.sb-editor-fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sb-editor-fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Dialog container */
+.sb-editor-dialog {
+  position: relative;
+
+  width: 100%;
+  max-width: 960px;
+
+  background: var(--panel-bg-solid, #fff);
+  border-radius: 36px;
+
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+
+  border: 1px solid var(--panel-border);
+
+  transform: translateY(16px) scale(0.95);
+  opacity: 0;
+
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.sb-editor-enter {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.sb-editor-exit {
+  transform: translateY(16px) scale(0.95);
+  opacity: 0;
+}
+
+/* -------------------------------------------------------
+   HEADER
+------------------------------------------------------- */
+
+.sb-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: var(--space-lg) var(--space-xl);
+
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.sb-editor-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--editor-text);
+}
+
+.sb-editor-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.sb-editor-close {
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.sb-editor-close:hover {
+  color: var(--editor-text);
+}
+
+/* -------------------------------------------------------
+   BODY LAYOUT
+------------------------------------------------------- */
+
+.sb-editor-body {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: var(--space-lg);
+
+  padding: var(--space-xl);
+}
+
+.sb-editor-left,
+.sb-editor-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* -------------------------------------------------------
+   FORM ELEMENTS
+------------------------------------------------------- */
+
+.sb-editor-label {
+  display: block;
+}
+
+.sb-editor-label-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.sb-editor-input,
+.sb-editor-textarea {
+  margin-top: var(--space-sm);
+  width: 100%;
+
+  padding: var(--space-md) var(--space-lg);
+
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--panel-border);
+
+  font-size: 0.9rem;
+  color: var(--editor-text);
+
+  outline: none;
+  background: var(--panel-bg-solid, #fff);
+
+  transition: border-color 0.15s ease;
+}
+
+.sb-editor-input:focus,
+.sb-editor-textarea:focus {
+  border-color: var(--tab-accent);
+}
+
+.sb-editor-textarea {
+  resize: none;
+  font-family: var(--font-mono, monospace);
+}
+
+/* -------------------------------------------------------
+   FILE DROP ZONE
+------------------------------------------------------- */
+
+.sb-editor-dropzone {
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--panel-border);
+
+  background: var(--panel-bg);
+  padding: var(--space-lg);
+
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.sb-drop-hover {
+  border-color: var(--tab-accent);
+  background: var(--hover-bg);
+}
+
+/* -------------------------------------------------------
+   ATTACHED FILE INFO
+------------------------------------------------------- */
+
+.sb-editor-fileinfo {
+  min-height: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* -------------------------------------------------------
+   ERROR BANNER
+------------------------------------------------------- */
+
+.sb-editor-error {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--danger-border, #f5b5b5);
+  background: var(--danger-bg, #ffecec);
+
+  padding: var(--space-md) var(--space-lg);
+
+  font-size: 0.9rem;
+  color: var(--danger-text, #b30000);
+}
+
+/* -------------------------------------------------------
+   MODE SWITCHER
+------------------------------------------------------- */
+
+.sb-editor-modebar {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.sb-editor-mode-active,
+.sb-editor-mode-inactive {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sb-editor-mode-active {
+  background: var(--panel-bg);
+  color: var(--editor-text);
+}
+
+.sb-editor-mode-inactive {
+  color: var(--text-muted);
+  border: 1px solid var(--panel-border);
+}
+
+.sb-editor-mode-inactive:hover {
+  color: var(--editor-text);
+}
+
+/* -------------------------------------------------------
+   PREVIEW PANEL
+------------------------------------------------------- */
+
+.sb-editor-preview {
+  height: 420px;
+  overflow-y: auto;
+
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--panel-border);
+
+  background: var(--panel-bg-solid, #fff);
+  padding: var(--space-lg);
+
+  color: var(--editor-text);
+
+  /* prose-like defaults */
+  line-height: 1.5;
+}
+
+.sb-editor-preview-empty {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* -------------------------------------------------------
+   FOOTER
+------------------------------------------------------- */
+
+.sb-editor-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-md);
+
+  padding: var(--space-lg) var(--space-xl);
+
+  border-top: 1px solid var(--panel-border);
+}
+
+/* Buttons */
+.sb-editor-btn-secondary {
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-lg);
+
+  border: 1px solid var(--panel-border);
+  background: transparent;
+
+  color: var(--text-muted);
+  cursor: pointer;
+
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.sb-editor-btn-secondary:hover {
+  color: var(--editor-text);
+  border-color: var(--editor-text);
+}
+
+.sb-editor-btn-primary {
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-lg);
+
+  background: var(--tab-accent);
+  color: white;
+
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.sb-editor-btn-primary:hover {
+  background: var(--tab-accent-hover);
+}

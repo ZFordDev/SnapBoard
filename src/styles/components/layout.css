@@ -6,3 +6,13 @@
   overflow: hidden;
   box-sizing: border-box;
 }
+.sb-hidden {
+  display: none;
+}
+.sb-drop-hover {
+  border-color: var(--tab-accent);
+  background: var(--hover-bg);
+}
+.sb-editor-dialog {
+  position: relative;
+}

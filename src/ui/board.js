@@ -108,25 +108,31 @@ function renderColumn(col) {
 // -----------------------------
 function renderCard(card, colId) {
   const cardEl = el("div", {
-    class: "card glass p-4 rounded-xl cursor-grab active:cursor-grabbing border border-transparent hover:border-blue-300/40 hover:-translate-y-0.5 hover:shadow-md transition-all group",
+    class: "sb-card",
     attrs: { draggable: "true", id: card.id, "data-col-id": colId }
   });
 
   const badgeLabel = card.file ? "File" : "Note";
-  const badgeClass = card.file ? "text-emerald-600" : "text-blue-600";
+  const badgeClass = card.file ? "sb-card-badge file" : "sb-card-badge note";
 
   cardEl.innerHTML = `
-    <div class="flex items-start justify-between mb-3">
-      <span class="text-[10px] uppercase tracking-wider ${badgeClass} font-bold">${badgeLabel}</span>
-      <button class="delete-card opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-700 transition-all" title="Delete card">🗑️</button>
+    <div class="sb-card-meta">
+      <span class="${badgeClass}">${badgeLabel}</span>
+      <button class="sb-card-delete delete-card" title="Delete card">🗑️</button>
     </div>
-    <div class="mb-3">
-      <h4 class="text-sm font-semibold text-slate-900 mb-2">${escapeHtml(card.title)}</h4>
-      <div class="text-sm text-slate-700 leading-relaxed prose prose-sm max-w-none">
+
+    <div class="sb-card-content">
+      <h4 class="sb-card-title">${escapeHtml(card.title)}</h4>
+      <div class="sb-card-body">
         ${sanitizeHTML(marked.parse(card.body || ""))}
       </div>
     </div>
-    ${card.file ? `<div class="mt-3 rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">Attached file: ${escapeHtml(card.file.name)}</div>` : ""}
+
+    ${
+      card.file
+        ? `<div class="sb-card-file">Attached file: ${escapeHtml(card.file.name)}</div>`
+        : ""
+    }
   `;
 
   return cardEl;

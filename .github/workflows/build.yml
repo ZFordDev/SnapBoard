@@ -25,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Tailwind
-        run: npm run build:css
-
       - name: Build Linux artifacts
         run: npx electron-builder --linux AppImage deb --publish=never
 
@@ -57,9 +54,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Build Tailwind
-        run: npm run build:css
 
       - name: Build Windows installer
         run: npx electron-builder --win nsis --publish=never

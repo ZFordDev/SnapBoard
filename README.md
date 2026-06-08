@@ -183,7 +183,7 @@ SnapBoard/
 │   ├── state/                  # Board + card state management
 │   ├── ui/                     # UI components
 │   ├── utils/                  # Utility helpers
-│   ├── styles/                 # CSS + Tailwind
+│   ├── styles/                 # CSS
 │   ├── preload.js              # Electron preload bridge
 │   └── scripts.js              # Renderer entry script
 │
@@ -191,7 +191,6 @@ SnapBoard/
 ├── main.js                     # Electron main process
 ├── bundle.js                   # Bundled renderer output
 │
-├── tailwind.config.js          # Tailwind configuration
 ├── package.json                # App metadata + dependencies
 ├── package-lock.json
 │
