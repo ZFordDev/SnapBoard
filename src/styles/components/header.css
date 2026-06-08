@@ -1,0 +1,44 @@
+.sb-header {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
+}
+.sb-header-left,
+.sb-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sb-header-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--tab-text);
+
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sb-header-btn:hover {
+  background: var(--tab-idle-bg);
+  color: var(--editor-text);
+}
+.sb-header-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--editor-text);
+}
