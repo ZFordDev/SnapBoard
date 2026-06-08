@@ -10,6 +10,7 @@
 @import "./components/layout.css"; /* general layout helpers **NEW** */
 @import "./components/board.css"; /* board layout helpers **NEW** */
 @import "./components/column.css"; /* column layout helpers **NEW** */
+@import "./components/viewcard.css"; /* card layout helpers **NEW** */
 
 /* Themes */
 @import "./themes/light.css"; /* light theme **NEW** basic for just sidebar */
