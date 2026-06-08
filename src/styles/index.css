@@ -1,9 +1,7 @@
-@import "./styles.css"; /* flagged to be removed once index.css is complete */
-
 /* Components */
 @import "./components/sidebar.css"; /* left hand sidebar **NEW** */
 @import "./buttons/standard.css"; /* basic button styles **NEW** */
-@import "./components/update.css:"; /* update button styles **NEW** */
+@import "./components/update.css"; /* update button styles **NEW** */
 @import "./components/footer.css"; /* footer layout helpers **NEW** */
 @import "./components/header.css"; /* header layout helpers **NEW** */
 @import "./components/body.css"; /* body layout helpers **NEW** */
@@ -11,6 +9,7 @@
 @import "./components/board.css"; /* board layout helpers **NEW** */
 @import "./components/column.css"; /* column layout helpers **NEW** */
 @import "./components/viewcard.css"; /* card layout helpers **NEW** */
+@import "./components/cardEditor.css"; /* card editor layout helpers **NEW** */
 
 /* Themes */
 @import "./themes/light.css"; /* light theme **NEW** basic for just sidebar */

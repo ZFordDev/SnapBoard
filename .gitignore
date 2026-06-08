@@ -20,10 +20,6 @@ electron-builder-cache/
 builder-debug.yml
 builder-effective-config.yaml
 
-# ────────────────────────────────────────────────
-#  Tailwind Output
-# ────────────────────────────────────────────────
-src/styles.css
 
 # ────────────────────────────────────────────────
 #  Environment Files
