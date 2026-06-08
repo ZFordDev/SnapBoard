@@ -6,6 +6,8 @@
 @import "./components/update.css:"; /* update button styles **NEW** */
 @import "./components/footer.css"; /* footer layout helpers **NEW** */
 @import "./components/header.css"; /* header layout helpers **NEW** */
+@import "./components/body.css"; /* body layout helpers **NEW** */
+@import "./components/layout.css"; /* general layout helpers **NEW** */
 
 /* Themes */
 @import "./themes/light.css"; /* light theme **NEW** basic for just sidebar */
