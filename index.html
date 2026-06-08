@@ -45,30 +45,23 @@
 
 
     <!-- Header -->
-    <header
-      class="flex-none h-12 flex items-center justify-between px-6 z-10
-      bg-white/20 backdrop-blur-xl border-b border-white/10 shadow-sm"
-    >
-      <div class="flex items-center gap-4">
-        <button
-          id="menu-btn"
-          class="p-2 hover:bg-white/10 rounded-lg transition-colors text-slate-700"
-        >
-          ☰
-        </button>
-
-        <div class="text-sm font-semibold text-slate-800">
+    <header class="sb-header">
+      <div class="sb-header-left">
+        <button id="menu-btn" class="sb-header-btn">☰</button>
+      
+        <div class="sb-header-title">
           <span id="board-name">My Board</span>
         </div>
       </div>
-
-      <div class="flex items-center gap-3">
-        <button id="add-column-btn" class="sb-btn">
+    
+      <div class="sb-header-right">
+        <button id="add-column-btn" class="sb-header-btn">
           <span class="icon">＋</span>
           <span>Add Column</span>
         </button>
       </div>
     </header>
+
 
     <!-- Board Area -->
     <main
