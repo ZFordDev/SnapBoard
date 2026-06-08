@@ -21,64 +21,66 @@
     <link rel="stylesheet" href="src/styles/index.css" />
   </head>
 
-  <body class="flex flex-col h-screen overflow-hidden bg-slate-100 light-theme">
+  <body class="sb-body light-theme">
+    <div class="sb-app">
 
-    <!-- Edge Trigger -->
-    <div id="trigger-zone" class="trigger-zone"></div>
-    <!-- Sidebar -->
-    <aside id="snap-sidebar" class="sidebar">
-      <div class="sidebar-header">
-        <button id="close-btn" class="sidebar-close">✕</button>
-      </div>
-    
-      <nav class="sidebar-nav">
-        <h3>Boards</h3>
-        <ul id="board-list"></ul>
-        <button id="new-board-btn" class="sidebar-action">+ New Board</button>
-      </nav>
-    
-      <div class="sidebar-footer">
-        <h3>Updates</h3>
-        <button id="update-btn" class="sidebar-update-btn">Update</button>
-      </div>
-    </aside>
-
-
-    <!-- Header -->
-    <header class="sb-header">
-      <div class="sb-header-left">
-        <button id="menu-btn" class="sb-header-btn">☰</button>
-      
-        <div class="sb-header-title">
-          <span id="board-name">My Board</span>
+      <!-- Edge Trigger -->
+      <div id="trigger-zone" class="trigger-zone"></div>
+      <!-- Sidebar -->
+      <aside id="snap-sidebar" class="sidebar">
+        <div class="sidebar-header">
+          <button id="close-btn" class="sidebar-close">✕</button>
         </div>
-      </div>
-    
-      <div class="sb-header-right">
-        <button id="add-column-btn" class="sb-header-btn">
-          <span class="icon">＋</span>
-          <span>Add Column</span>
-        </button>
-      </div>
-    </header>
+      
+        <nav class="sidebar-nav">
+          <h3>Boards</h3>
+          <ul id="board-list"></ul>
+          <button id="new-board-btn" class="sidebar-action">+ New Board</button>
+        </nav>
+      
+        <div class="sidebar-footer">
+          <h3>Updates</h3>
+          <button id="update-btn" class="sidebar-update-btn">Update</button>
+        </div>
+      </aside>
 
 
-    <!-- Board Area -->
-    <main
-      id="board"
-      class="flex-1 flex overflow-x-auto p-8 gap-6"
-    ></main>
+      <!-- Header -->
+      <header class="sb-header">
+        <div class="sb-header-left">
+          <button id="menu-btn" class="sb-header-btn">☰</button>
+        
+          <div class="sb-header-title">
+            <span id="board-name">My Board</span>
+          </div>
+        </div>
+      
+        <div class="sb-header-right">
+          <button id="add-column-btn" class="sb-header-btn">
+            <span class="icon">＋</span>
+            <span>Add Column</span>
+          </button>
+        </div>
+      </header>
 
-    <!-- Footer -->
-    <footer class="sb-footer">
-      <div class="sb-footer-left"></div>
-      <div class="sb-footer-center">
-        <span id="version-info" class="sb-version"></span>
-      </div>
-      <div class="sb-footer-right">
-        <span id="update-status" class="sb-update-status"></span>
-      </div>
-    </footer>
+
+      <!-- Board Area -->
+      <main
+        id="board"
+        class="flex-1 flex overflow-x-auto p-8 gap-6"
+      ></main>
+
+      <!-- Footer -->
+      <footer class="sb-footer">
+        <div class="sb-footer-left"></div>
+        <div class="sb-footer-center">
+          <span id="version-info" class="sb-version"></span>
+        </div>
+        <div class="sb-footer-right">
+          <span id="update-status" class="sb-update-status"></span>
+        </div>
+      </footer>
+    </div>
 
     <!-- Renderer entrypoint -->
     <script src="dist/bundle.js"></script>
