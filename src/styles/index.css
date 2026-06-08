@@ -8,6 +8,7 @@
 @import "./components/header.css"; /* header layout helpers **NEW** */
 @import "./components/body.css"; /* body layout helpers **NEW** */
 @import "./components/layout.css"; /* general layout helpers **NEW** */
+@import "./components/board.css"; /* board layout helpers **NEW** */
 
 /* Themes */
 @import "./themes/light.css"; /* light theme **NEW** basic for just sidebar */
