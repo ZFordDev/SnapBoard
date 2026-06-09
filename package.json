@@ -19,7 +19,7 @@
   "dependencies": {
     "electron-log": "^5.4.3",
     "electron-updater": "^6.8.3",
-    "marked": "^18.0.4"
+    "marked": "^18.0.5"
   },
   "devDependencies": {
     "electron": "^42.3.3",
