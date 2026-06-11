@@ -182,13 +182,17 @@ export async function addColumn(title = "New Column") {
 
 export async function renameColumn(colId, newTitle) {
   const board = getCurrentBoard();
-  if (!board) return;
+  if (!board || typeof newTitle !== "string") return false;
+
+  const trimmedTitle = newTitle.trim();
+  if (!trimmedTitle) return false;
 
   const col = board.columns.find((c) => c.id === colId);
-  if (col) {
-    col.title = newTitle;
-    scheduleSave();
-  }
+  if (!col) return false;
+
+  col.title = trimmedTitle;
+  scheduleSave();
+  return true;
 }
 
 export async function deleteColumn(colId) {

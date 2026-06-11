@@ -23,11 +23,64 @@ export function setupColumnInteractions() {
 
   delegate(boardEl, ".column-header", "dblclick", async (e, header) => {
     const colId = header.getAttribute("data-col-id");
-    const newName = prompt("Rename column:", header.textContent.trim());
-    if (!newName) return;
+    if (!colId) return;
 
-    await state.renameColumn(colId, newName);
-    renderBoard();
+    const currentName = header.textContent.trim();
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "column-title-input";
+    input.value = currentName;
+    input.setAttribute("aria-label", "Rename column");
+    input.autocapitalize = "sentences";
+    input.spellcheck = false;
+
+    let finished = false;
+    const commitRename = async () => {
+      if (finished) return;
+      finished = true;
+
+      const newName = input.value.trim();
+      if (!newName) {
+        alert("Column title cannot be blank.");
+        input.disabled = false;
+        input.focus();
+        input.select();
+        finished = false;
+        return;
+      }
+
+      const success = await state.renameColumn(colId, newName);
+      if (!success) {
+        console.error(`Failed to rename column ${colId}`);
+        alert("Unable to rename the column. Please try again.");
+      }
+
+      renderBoard();
+    };
+
+    const cancelRename = () => {
+      if (finished) return;
+      finished = true;
+      renderBoard();
+    };
+
+    input.addEventListener("keydown", async (evt) => {
+      if (evt.key === "Enter") {
+        evt.preventDefault();
+        await commitRename();
+      } else if (evt.key === "Escape") {
+        evt.preventDefault();
+        cancelRename();
+      }
+    });
+
+    input.addEventListener("blur", async () => {
+      await commitRename();
+    });
+
+    header.replaceWith(input);
+    input.focus();
+    input.select();
   });
 }
 
