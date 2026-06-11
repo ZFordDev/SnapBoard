@@ -76,9 +76,10 @@ export function initCardEditor() {
       </div>
 
       <div class="sb-editor-footer">
-        <button type="button" class="cancel-editor sb-editor-btn-secondary">Cancel</button>
-        <button type="button" class="save-editor sb-editor-btn-primary">Save</button>
+        <button type="button" class="cancel-editor sb-header-btn sb-btn-secondary">Cancel</button>
+        <button type="button" class="save-editor sb-header-btn sb-btn-primary">Save</button>
       </div>
+
 
     </div>
   `;

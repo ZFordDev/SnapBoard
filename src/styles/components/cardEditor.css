@@ -394,36 +394,5 @@
   border-top: 1px solid var(--panel-border);
 }
 
-/* Buttons */
-.sb-editor-btn-secondary {
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-lg);
+/* Buttons now using a global element */
 
-  border: 1px solid var(--panel-border);
-  background: transparent;
-
-  color: var(--text-muted);
-  cursor: pointer;
-
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-.sb-editor-btn-secondary:hover {
-  color: var(--editor-text);
-  border-color: var(--editor-text);
-}
-
-.sb-editor-btn-primary {
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-lg);
-
-  background: var(--tab-accent);
-  color: white;
-
-  cursor: pointer;
-  transition: background 0.15s ease;
-}
-
-.sb-editor-btn-primary:hover {
-  background: var(--tab-accent-hover);
-}
