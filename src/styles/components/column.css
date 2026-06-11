@@ -30,6 +30,25 @@
   gap: var(--space-sm);
 }
 
+.column-title-input {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--editor-text);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.column-title-input:focus {
+  border-color: var(--tab-accent);
+}
+
 /* Card count badge */
 .sb-column-count {
   font-size: 10px;
