@@ -53,4 +53,7 @@ body.light-theme {
   --danger-border: #f5b5b5;
   --danger-text: #b30000;
 
+  --card-bg: #ffffff;
+  --card-border: var(--panel-border);
+
 }

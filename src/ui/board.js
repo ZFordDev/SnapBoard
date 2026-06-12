@@ -73,7 +73,7 @@ function renderColumn(col) {
         <h3 class="column-header" data-col-id="${col.id}">
           ${escapeHtml(col.title)}
         </h3>
-        <button class="delete-column" title="Delete column">🗑️</button>
+        <button type="button" class="delete-column sb-header-btn sb-btn-secondary" title="Delete column">X</button>
       </div>
 
       <span class="sb-column-count">
@@ -118,9 +118,8 @@ function renderCard(card, colId) {
   cardEl.innerHTML = `
     <div class="sb-card-meta">
       <span class="${badgeClass}">${badgeLabel}</span>
-      <button class="sb-card-delete delete-card" title="Delete card">🗑️</button>
+      <button type="button"class="delete-card sb-header-btn sb-btn-secondary"title="Delete card">X</button>
     </div>
-
     <div class="sb-card-content">
       <h4 class="sb-card-title">${escapeHtml(card.title)}</h4>
       <div class="sb-card-body">

@@ -3,7 +3,7 @@
   background: var(--card-bg);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
-  border: 1px solid transparent;
+  border: 1px solid var(--card-border);
 
   cursor: grab;
   transition: background 0.15s ease, border-color 0.15s ease,
