@@ -1,0 +1,51 @@
+/* -------------------------------------------------------
+   CARD EDITOR — OVERLAY + DIALOG
+------------------------------------------------------- */
+
+/* Overlay */
+.sb-editor-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--space-lg);
+
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.2s ease-out;
+}
+
+/* -------------------------------------------------------
+   CARD EDITOR — DIALOG CONTAINER
+------------------------------------------------------- */
+
+.sb-editor-dialog {
+  position: relative;
+
+
+  width: 100%;
+  max-width: 960px;
+
+  background: var(--panel-bg-solid, #fff);
+  border-radius: 36px;
+  border: 1px solid var(--panel-border);
+
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+
+  border: 1px solid var(--panel-border);
+
+  /* RESTORED ANIMATION STATE */
+  transform: translateY(16px) scale(0.95);
+  opacity: 0;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}

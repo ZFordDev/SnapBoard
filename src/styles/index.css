@@ -13,3 +13,12 @@
 
 /* Themes */
 @import "./themes/light.css"; /* light theme **NEW** basic for just sidebar */
+@import "./components/cardEditor/animations.css"; /* card editor animations **NEW** */
+
+/* Global (SnapDock style!) */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: system-ui, sans-serif;
+}

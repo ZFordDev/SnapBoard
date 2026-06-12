@@ -56,7 +56,7 @@
   background: var(--badge-bg);
   padding: 2px 6px;
   border-radius: var(--radius-sm);
-  color: var(--text-muted);
+  color: var(--editor-text-secondary);
 }
 
 /* Card list container */
@@ -83,7 +83,7 @@
   border-radius: var(--radius-md);
 
   background: var(--glass-bg-soft); /* NEW */
-  color: var(--text-muted);
+  color: var(--editor-text-secondary);
 
   cursor: pointer;
   transition: all 0.15s ease;
@@ -110,5 +110,5 @@
   --space-md: 12px;
   --space-lg: 16px;
 
-  --text-muted: rgba(255, 255, 255, 0.6);
+  --editor-text-secondary: rgba(255, 255, 255, 0.6);
 }

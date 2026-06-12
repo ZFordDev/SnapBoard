@@ -63,7 +63,7 @@
 
 .sb-card-body {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--editor-text-secondary);
   line-height: 1.4;
 }
 
@@ -75,7 +75,7 @@
   background: var(--panel-bg);
   padding: var(--space-md);
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--editor-text-secondary);
 }
 :root {
   --card-bg: rgba(255, 255, 255, 0.06);

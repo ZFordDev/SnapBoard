@@ -1,0 +1,60 @@
+/* -------------------------------------------------------
+   ATTACHMENT BLOCK (CARD EDITOR)
+   Styles for attached file row inside the editor modal
+------------------------------------------------------- */
+
+.sb-editor-fileinfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sb-attachment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+
+  background: var(--panel-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  border: 1px solid var(--panel-border);
+}
+
+.sb-attachment-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.sb-attachment-icon {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--panel-bg-alt);
+  border-radius: var(--radius-md);
+  color: var(--editor-text-secondary);
+}
+
+.sb-attachment-name {
+  font-size: 0.85rem;
+  color: var(--editor-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sb-attachment-remove {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--tab-accent);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.sb-attachment-remove:hover {
+  color: var(--tab-accent-hover);
+}

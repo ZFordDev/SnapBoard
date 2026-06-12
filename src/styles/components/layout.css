@@ -13,6 +13,3 @@
   border-color: var(--tab-accent);
   background: var(--hover-bg);
 }
-.sb-editor-dialog {
-  position: relative;
-}

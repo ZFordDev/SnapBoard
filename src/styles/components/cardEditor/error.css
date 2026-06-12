@@ -1,0 +1,14 @@
+/* -------------------------------------------------------
+   CARD EDITOR — ERROR BANNER
+------------------------------------------------------- */
+
+.sb-editor-error {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--danger-border);
+  background: var(--danger-bg);
+
+  padding: var(--space-md) var(--space-lg);
+
+  font-size: 0.9rem;
+  color: var(--danger-text);
+}

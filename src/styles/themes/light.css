@@ -9,6 +9,7 @@ body.light-theme {
   --editor-text-secondary: #333333;
 
   --border-color: #ddd;
+  --panel-border: var(--border-color, #ddd);
 
   --code-bg:      #f6f8fa;
   --code-text:    #24292e;
@@ -47,4 +48,9 @@ body.light-theme {
   --tab-border:    var(--border-color);
 
   --footer-bg-glass: rgba(255, 255, 255, 0.7);
+
+  --danger-bg: #ffecec;
+  --danger-border: #f5b5b5;
+  --danger-text: #b30000;
+
 }

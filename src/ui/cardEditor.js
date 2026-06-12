@@ -40,7 +40,7 @@ export function initCardEditor() {
             Markdown editor with preview and file attachments. Press Ctrl+S to save or Esc to close.
           </p>
         </div>
-        <button type="button" class="close-editor sb-editor-close">×</button>
+        <button type="button" class="close-editor sb-header-btn sb-btn-secondary">X</button>
       </div>
 
       <div class="sb-editor-body">
@@ -76,9 +76,10 @@ export function initCardEditor() {
       </div>
 
       <div class="sb-editor-footer">
-        <button type="button" class="cancel-editor sb-editor-btn-secondary">Cancel</button>
-        <button type="button" class="save-editor sb-editor-btn-primary">Save</button>
+        <button type="button" class="cancel-editor sb-header-btn sb-btn-secondary">Cancel</button>
+        <button type="button" class="save-editor sb-header-btn sb-btn-primary">Save</button>
       </div>
+
 
     </div>
   `;
