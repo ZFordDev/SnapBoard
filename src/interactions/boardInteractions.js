@@ -92,11 +92,11 @@ export function setupCardInteractions() {
 
   delegate(boardEl, ".delete-card", "click", async (e, btn) => {
     e.stopPropagation();
-    const cardEl = btn.closest(".card");
+    const cardEl = btn.closest(".sb-card");
     const cardId = cardEl?.id;
     if (!cardId) return;
 
-    const colEl = btn.closest(".drop-zone");
+    const colEl = btn.closest("[data-col-id]");
     const colId = colEl?.getAttribute("data-col-id");
     if (!colId) return;
 
