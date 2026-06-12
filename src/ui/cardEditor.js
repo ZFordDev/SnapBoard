@@ -40,7 +40,7 @@ export function initCardEditor() {
             Markdown editor with preview and file attachments. Press Ctrl+S to save or Esc to close.
           </p>
         </div>
-        <button type="button" class="close-editor sb-editor-close">×</button>
+        <button type="button" class="close-editor sb-header-btn sb-btn-secondary">X</button>
       </div>
 
       <div class="sb-editor-body">

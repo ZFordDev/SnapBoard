@@ -1,0 +1,27 @@
+/* -------------------------------------------------------
+   CARD EDITOR — ANIMATIONS
+   Unified fade + dialog entry/exit animations
+------------------------------------------------------- */
+
+/* Overlay fade */
+.sb-editor-fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sb-editor-fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Dialog entry/exit */
+.sb-editor-enter {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+
+}
+
+.sb-editor-exit {
+  transform: translateY(16px) scale(0.95);
+  opacity: 0;
+}

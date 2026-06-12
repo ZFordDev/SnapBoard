@@ -1,0 +1,22 @@
+/* -------------------------------------------------------
+   CARD EDITOR — FILE DROP ZONE
+------------------------------------------------------- */
+
+.sb-editor-dropzone {
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--panel-border);
+
+  background: var(--panel-bg);
+  padding: var(--space-lg);
+
+  font-size: 0.9rem;
+  color: var(--editor-text-secondary);
+  text-align: center;
+
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.sb-drop-hover {
+  border-color: var(--tab-accent);
+  background: var(--hover-bg);
+}

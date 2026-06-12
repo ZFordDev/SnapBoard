@@ -1,0 +1,19 @@
+/* -------------------------------------------------------
+   CARD EDITOR — PREVIEW PANEL
+------------------------------------------------------- */
+
+.sb-editor-preview {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  background: var(--panel-bg);
+  border-left: 1px solid var(--panel-border);
+}
+
+.sb-editor-preview-empty {
+  border: 1px solid var(--panel-border);
+  font-size: 0.85rem;
+  color: var(--editor-text-secondary);
+}

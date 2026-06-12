@@ -1,0 +1,49 @@
+/* -------------------------------------------------------
+   CARD EDITOR — HEADER
+------------------------------------------------------- */
+
+.sb-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.sb-editor-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--editor-text);
+}
+
+.sb-editor-subtitle {
+  font-size: 0.85rem;
+  color: var(--editor-text-secondary);
+}
+
+.sb-editor-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  font-size: 1.25rem;
+  border-radius: var(--radius-md);
+
+  background: transparent;
+  color: var(--editor-text-secondary);
+
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sb-editor-close:hover {
+  background: var(--panel-bg-alt);
+  color: var(--editor-text);
+}
+.close-editor:hover {
+  color: var(--danger-text);
+}

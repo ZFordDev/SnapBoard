@@ -1,0 +1,14 @@
+/* -------------------------------------------------------
+   CARD EDITOR — FOOTER
+------------------------------------------------------- */
+
+.sb-editor-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-md);
+
+  padding: var(--space-lg) var(--space-xl);
+
+  border-top: 1px solid var(--panel-border);
+}

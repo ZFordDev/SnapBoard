@@ -1,0 +1,44 @@
+/* -------------------------------------------------------
+   CARD EDITOR — FORM ELEMENTS
+------------------------------------------------------- */
+
+.sb-editor-label {
+  display: block;
+}
+
+.sb-editor-label-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--editor-text-secondary);
+}
+
+/* Shared input + textarea styles */
+.sb-editor-input,
+.sb-editor-textarea {
+  margin-top: var(--space-sm);
+  width: 100%;
+
+  padding: var(--space-md) var(--space-lg);
+
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--panel-border);
+
+  font-size: 0.9rem;
+  color: var(--editor-text);
+
+  background: var(--editor-bg);
+  outline: none;
+
+  transition: border-color 0.15s ease;
+}
+
+.sb-editor-input:focus,
+.sb-editor-textarea:focus {
+  border-color: var(--tab-accent);
+}
+
+/* Textarea-specific */
+.sb-editor-textarea {
+  resize: none;
+  font-family: var(--font-mono, monospace);
+}
