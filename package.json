@@ -22,7 +22,7 @@
     "marked": "^18.0.4"
   },
   "devDependencies": {
-    "electron": "^42.3.3",
+    "electron": "^42.5.0",
     "electron-builder": "^26.7.0",
     "esbuild": "^0.28.1"
   },
