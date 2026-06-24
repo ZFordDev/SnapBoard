@@ -24,7 +24,7 @@
   "devDependencies": {
     "electron": "^42.3.3",
     "electron-builder": "^26.7.0",
-    "esbuild": "^0.28.0"
+    "esbuild": "^0.28.1"
   },
   "build": {
     "appId": "studio.zforddev.snapboard",
