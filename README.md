@@ -33,7 +33,7 @@
 # SnapBoard
 
 > A lightweight, local‑first kanban board built for the SnapDock ecosystem.  
-> **Status:** Alpha • Actively Developed • Accepting Contributions
+> **Status:** Alpha • ARCHIVED • NOT Accepting Contributions
 
 ---
 
