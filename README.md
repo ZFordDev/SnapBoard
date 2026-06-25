@@ -37,6 +37,11 @@
 
 ---
 
+> [!NOTE]  
+> This project has been Archived due to change of direction.
+
+---
+
 ## Why This Exists
 
 SnapBoard was created to provide a **fast, local‑first planning tool** that fits naturally into the SnapDock ecosystem.  
