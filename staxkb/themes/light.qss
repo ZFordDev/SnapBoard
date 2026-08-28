@@ -1,0 +1,240 @@
+/* StaxKB — Light Theme (Kanri-inspired) */
+
+/* ── Global defaults ─────────────────────────────────────── */
+QWidget {
+    background-color: #f5f5f5;
+    color: #1a1a2e;
+    font-family: 'Inter', 'Segoe UI', 'SF Pro Text', 'Ubuntu', sans-serif;
+    font-size: 13px;
+}
+
+/* ── Menu bar ────────────────────────────────────────────── */
+QMenuBar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 4px 8px;
+}
+
+QMenuBar::item {
+    background: transparent;
+    padding: 4px 10px;
+    color: #6b7280;
+    border-radius: 4px;
+}
+
+QMenuBar::item:selected {
+    background-color: #f3f4f6;
+    color: #1a1a2e;
+}
+
+/* ── Dropdown menus ──────────────────────────────────────── */
+QMenu {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 4px 0px;
+}
+
+QMenu::item {
+    padding: 6px 20px 6px 16px;
+    color: #374151;
+}
+
+QMenu::item:selected {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+/* ── Board sidebar ───────────────────────────────────────── */
+QWidget#BoardSidebar {
+    background-color: #ffffff;
+    border-right: 1px solid #e5e5e5;
+}
+
+QLabel#SidebarTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+    background: transparent;
+}
+
+QPushButton#SidebarAddBtn {
+    background-color: #f3f4f6;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #374151;
+}
+
+QPushButton#SidebarAddBtn:hover {
+    background-color: #e5e7eb;
+    border-color: #d1d5db;
+}
+
+QListWidget#BoardList {
+    background-color: transparent;
+    border: none;
+    padding: 4px 8px;
+}
+
+QListWidget#BoardList::item {
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #374151;
+    margin: 2px 4px;
+}
+
+QListWidget#BoardList::item:selected {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+}
+
+QListWidget#BoardList::item:hover {
+    background-color: #f9fafb;
+}
+
+/* ── Board area ──────────────────────────────────────────── */
+QScrollArea#BoardScroll {
+    background-color: #f5f5f5;
+    border: none;
+}
+
+/* ── Columns ─────────────────────────────────────────────── */
+QWidget#KanbanColumn {
+    background-color: #f9fafb;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+}
+
+QLabel#ColumnTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+    padding: 4px 0px;
+    background: transparent;
+    border: none;
+}
+
+QLabel#CardCount {
+    background-color: #e5e7eb;
+    color: #6b7280;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 6px;
+}
+
+QPushButton#ColumnMenuBtn {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+QPushButton#ColumnMenuBtn:hover {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
+QListWidget {
+    background-color: transparent;
+    border: none;
+    padding: 4px;
+}
+
+QListWidget::item {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 3px 0px;
+}
+
+QListWidget::item:selected {
+    background-color: #eff6ff;
+    border-color: #93c5fd;
+    color: #1a1a2e;
+}
+
+QListWidget::item:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+}
+
+/* ── Add card input ──────────────────────────────────────── */
+QWidget#KanbanColumn QLineEdit {
+    background-color: #ffffff;
+    color: #1a1a2e;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+QWidget#KanbanColumn QLineEdit:focus {
+    border-color: #93c5fd;
+    background-color: #ffffff;
+}
+
+QPushButton#AddCardBtn {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+QPushButton#AddCardBtn:hover {
+    background-color: #1d4ed8;
+}
+
+/* ── Add column button ───────────────────────────────────── */
+QPushButton#AddColumnBtn {
+    background-color: transparent;
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    color: #9ca3af;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+QPushButton#AddColumnBtn:hover {
+    border-color: #93c5fd;
+    color: #2563eb;
+    background-color: #eff6ff;
+}
+
+/* ── Search bar ──────────────────────────────────────────── */
+QWidget#SearchBar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+QWidget#SearchBar QLineEdit {
+    background-color: #f9fafb;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 6px 10px;
+}
+
+QWidget#SearchBar QLineEdit:focus {
+    border-color: #93c5fd;
+    background-color: #ffffff;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+QWidget#AppFooter {
+    background-color: #ffffff;
+    border-top: 1px solid #e5e5e5;
+    max-height: 28px;
+}
+
+QWidget#AppFooter QLabel {
+    color: #9ca3af;
+    font-size: 11px;
+}
