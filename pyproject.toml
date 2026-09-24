@@ -3,22 +3,22 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "staxkb"
-version = "0.1.0"
-description = "StaxDash StaxKB — local-first desktop StaxKB application"
+name = "snapboard-manta"
+version = "0.3.0"
+description = "SnapBoard Manta — local-first kanban board in the SnapDock ecosystem"
 readme = "README.md"
-license = { text = "EULA" }
+license = { text = "MIT" }
 requires-python = ">=3.10"
 
 authors = [
-  { name = "StaxDash", email = "studio@staxdash.com" }
+  { name = "ZFordDev", email = "zforddev@gmail.com" }
 ]
 maintainers = [
-  { name = "StaxDash", email = "studio@staxdash.com" }
+  { name = "ZFordDev", email = "zforddev@gmail.com" }
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: Other/Proprietary License",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 
@@ -30,7 +30,7 @@ dependencies = [
 dev = ["pytest", "black", "ruff"]
 
 [tool.setuptools]
-packages = ["staxkb"]
+packages = ["snapboard"]
 
 [tool.ruff]
 target-version = "py310"
@@ -43,4 +43,4 @@ select = ["E", "F", "I", "N", "UP", "SIM", "BLE"]
 ignore = ["N802", "BLE001"]
 
 [project.scripts]
-staxkb = "staxkb.main:main"
+snapboard-manta = "snapboard.main:main"

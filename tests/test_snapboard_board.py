@@ -1,3 +1,4 @@
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -259,6 +260,16 @@ class SnapBoardWindowTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.app = QApplication.instance() or QApplication([])
+        cls._old_config = os.environ.get("SNAPBOARD_CONFIG_DIR")
+        cls._tmp_dir = tempfile.mkdtemp()
+        os.environ["SNAPBOARD_CONFIG_DIR"] = cls._tmp_dir
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        if cls._old_config is None:
+            os.environ.pop("SNAPBOARD_CONFIG_DIR", None)
+        else:
+            os.environ["SNAPBOARD_CONFIG_DIR"] = cls._old_config
 
     def test_window_creation(self) -> None:
         from snapboard.ui.window import SnapBoardWindow

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from PySide6.QtCore import Qt
+from PySide6.QtCore import QByteArray, Qt
 from PySide6.QtGui import QKeySequence, QShortcut
 from PySide6.QtWidgets import (
     QFileDialog,
@@ -14,6 +14,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from ..config import load_settings, save_settings
 from .board import KanbanBoard
 from .carddialog import CardEditDialog
 from .footer import SnapBoardFooter
@@ -24,7 +25,7 @@ from .sidebar import BoardSidebar
 
 
 class SnapBoardWindow(QWidget):
-    def __init__(self, version: str = "0.1.0") -> None:
+    def __init__(self, version: str = "0.3.0") -> None:
         super().__init__()
         self.setWindowTitle("SnapBoard - Kanban Board")
         self.resize(1200, 700)
@@ -71,8 +72,11 @@ class SnapBoardWindow(QWidget):
         self.footer = SnapBoardFooter(version)
         layout.addWidget(self.footer)
 
-        # Default theme
-        self.apply_theme("light")
+        # Settings + restored state
+        self.settings = load_settings()
+        self.apply_theme(self.settings.theme)
+        if self.settings.geometry:
+            self.restoreGeometry(QByteArray(bytes(self.settings.geometry)))
 
         # Wire signals
         self._wire_signals()
@@ -255,6 +259,8 @@ class SnapBoardWindow(QWidget):
             self._load_active_board()
             self._update_title()
             self._update_footer()
+            self.settings.last_board = path
+            save_settings(self.settings)
 
     def _on_save(self) -> None:
         if self.manager.current_path():
@@ -276,6 +282,8 @@ class SnapBoardWindow(QWidget):
             if board:
                 self.board.sync_from_board(board)
             self.manager.save(path)
+            self.settings.last_board = path
+            save_settings(self.settings)
             self._update_title()
 
     # ---------------------------------------------------------
@@ -289,6 +297,8 @@ class SnapBoardWindow(QWidget):
             self.setStyleSheet(qss_path.read_text(encoding="utf-8"))
         else:
             self.setStyleSheet("")
+        self.settings.theme = theme_name
+        save_settings(self.settings)
 
     # ---------------------------------------------------------
     # Title / dirty state
@@ -323,6 +333,7 @@ class SnapBoardWindow(QWidget):
 
     def closeEvent(self, event) -> None:  # noqa: N802
         if not self.manager.is_dirty():
+            self._remember_window_state()
             event.accept()
             return
 
@@ -339,8 +350,14 @@ class SnapBoardWindow(QWidget):
             if self.manager.is_dirty():
                 event.ignore()
             else:
+                self._remember_window_state()
                 event.accept()
         elif reply == QMessageBox.Discard:
+            self._remember_window_state()
             event.accept()
         else:
             event.ignore()
+
+    def _remember_window_state(self) -> None:
+        self.settings.geometry = list(self.saveGeometry().data())
+        save_settings(self.settings)

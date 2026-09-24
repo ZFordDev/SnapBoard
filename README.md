@@ -1,7 +1,7 @@
 # StaxKB
 
 A local-first StaxKB desktop application from the StaxDash **StaxSuite** family.
-Runs entirely on your own machine — no cloud account, no telemetry.
+Runs entirely on your own machine â€” no cloud account, no telemetry.
 
 Part of the StaxSuite desktop suite (launched by **StaxOffice**), but also runs
 standalone via its own command:
@@ -40,4 +40,4 @@ python -m unittest discover -s tests -v
 
 ## Licence
 
-Proprietary — see [EULA.md](EULA.md). Not open-source licensed.
+Proprietary â€” see [EULA.md](EULA.md). Not open-source licensed.
