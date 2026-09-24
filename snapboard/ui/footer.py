@@ -3,7 +3,7 @@ from __future__ import annotations
 from PySide6.QtWidgets import QHBoxLayout, QLabel, QWidget
 
 
-class StaxKBFooter(QWidget):
+class SnapBoardFooter(QWidget):
     def __init__(self, version: str) -> None:
         super().__init__()
         self.setObjectName("AppFooter")

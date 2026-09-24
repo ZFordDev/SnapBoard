@@ -1,4 +1,4 @@
-"""Data models for StaxKB — boards, columns, cards with rich metadata."""
+"""Data models for SnapBoard — boards, columns, cards with rich metadata."""
 
 from __future__ import annotations
 

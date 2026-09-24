@@ -1,4 +1,4 @@
-"""Cross-platform font stacks for StaxOffice.
+"""Cross-platform font stacks for SnapBoard.
 
 Each tuple lists families from most specific to most generic.  Qt picks the
 first family available on the current platform, so the app looks native

@@ -1,75 +1,75 @@
-/* StaxKB — Light Theme (Kanri-inspired) */
+/* SnapBoard — Dark Theme (Kanri-inspired) */
 
 /* ── Global defaults ─────────────────────────────────────── */
 QWidget {
-    background-color: #f5f5f5;
-    color: #1a1a2e;
+    background-color: #0f1117;
+    color: #e2e8f0;
     font-family: 'Inter', 'Segoe UI', 'SF Pro Text', 'Ubuntu', sans-serif;
     font-size: 13px;
 }
 
 /* ── Menu bar ────────────────────────────────────────────── */
 QMenuBar {
-    background-color: #ffffff;
-    border-bottom: 1px solid #e5e5e5;
+    background-color: #161b22;
+    border-bottom: 1px solid #21262d;
     padding: 4px 8px;
 }
 
 QMenuBar::item {
     background: transparent;
     padding: 4px 10px;
-    color: #6b7280;
+    color: #8b949e;
     border-radius: 4px;
 }
 
 QMenuBar::item:selected {
-    background-color: #f3f4f6;
-    color: #1a1a2e;
+    background-color: #21262d;
+    color: #e2e8f0;
 }
 
 /* ── Dropdown menus ──────────────────────────────────────── */
 QMenu {
-    background-color: #ffffff;
-    border: 1px solid #e5e5e5;
+    background-color: #161b22;
+    border: 1px solid #21262d;
     border-radius: 8px;
     padding: 4px 0px;
 }
 
 QMenu::item {
     padding: 6px 20px 6px 16px;
-    color: #374151;
+    color: #c9d1d9;
 }
 
 QMenu::item:selected {
-    background-color: #eff6ff;
-    color: #2563eb;
+    background-color: #1f2937;
+    color: #58a6ff;
 }
 
 /* ── Board sidebar ───────────────────────────────────────── */
 QWidget#BoardSidebar {
-    background-color: #ffffff;
-    border-right: 1px solid #e5e5e5;
+    background-color: #161b22;
+    border-right: 1px solid #21262d;
 }
 
 QLabel#SidebarTitle {
     font-size: 14px;
     font-weight: 700;
-    color: #1a1a2e;
+    color: #e2e8f0;
     background: transparent;
 }
 
 QPushButton#SidebarAddBtn {
-    background-color: #f3f4f6;
-    border: 1px solid #e5e5e5;
+    background-color: #21262d;
+    border: 1px solid #30363d;
     border-radius: 6px;
     font-weight: bold;
     font-size: 16px;
-    color: #374151;
+    color: #c9d1d9;
 }
 
 QPushButton#SidebarAddBtn:hover {
-    background-color: #e5e7eb;
-    border-color: #d1d5db;
+    background-color: #30363d;
+    border-color: #484f58;
 }
 
 QListWidget#BoardList {
@@ -81,45 +81,45 @@ QListWidget#BoardList {
 QListWidget#BoardList::item {
     padding: 8px 12px;
     border-radius: 6px;
-    color: #374151;
+    color: #c9d1d9;
     margin: 2px 4px;
 }
 
 QListWidget#BoardList::item:selected {
-    background-color: #eff6ff;
-    color: #2563eb;
-    border: 1px solid #bfdbfe;
+    background-color: #1f2937;
+    color: #58a6ff;
+    border: 1px solid #1f6feb;
 }
 
 QListWidget#BoardList::item:hover {
-    background-color: #f9fafb;
+    background-color: #21262d;
 }
 
 /* ── Board area ──────────────────────────────────────────── */
 QScrollArea#BoardScroll {
-    background-color: #f5f5f5;
+    background-color: #0f1117;
     border: none;
 }
 
 /* ── Columns ─────────────────────────────────────────────── */
 QWidget#KanbanColumn {
-    background-color: #f9fafb;
-    border: 1px solid #e5e5e5;
+    background-color: #161b22;
+    border: 1px solid #21262d;
     border-radius: 12px;
 }
 
 QLabel#ColumnTitle {
     font-size: 14px;
     font-weight: 700;
-    color: #1a1a2e;
+    color: #e2e8f0;
     padding: 4px 0px;
     background: transparent;
     border: none;
 }
 
 QLabel#CardCount {
-    background-color: #e5e7eb;
-    color: #6b7280;
+    background-color: #21262d;
+    color: #8b949e;
     border-radius: 10px;
     font-size: 11px;
     font-weight: 600;
@@ -129,14 +129,14 @@ QLabel#CardCount {
 QPushButton#ColumnMenuBtn {
     background: transparent;
     border: none;
-    color: #9ca3af;
+    color: #484f58;
     font-size: 16px;
     border-radius: 4px;
 }
 
 QPushButton#ColumnMenuBtn:hover {
-    background-color: #e5e7eb;
-    color: #374151;
+    background-color: #21262d;
+    color: #c9d1d9;
 }
 
 /* ── Cards ───────────────────────────────────────────────── */
@@ -147,41 +147,41 @@ QListWidget {
 }
 
 QListWidget::item {
-    background-color: #ffffff;
-    border: 1px solid #e5e5e5;
+    background-color: #0d1117;
+    border: 1px solid #21262d;
     border-radius: 8px;
     padding: 10px 12px;
     margin: 3px 0px;
 }
 
 QListWidget::item:selected {
-    background-color: #eff6ff;
-    border-color: #93c5fd;
-    color: #1a1a2e;
+    background-color: #1f2937;
+    border-color: #1f6feb;
+    color: #e2e8f0;
 }
 
 QListWidget::item:hover {
-    background-color: #f9fafb;
-    border-color: #d1d5db;
+    background-color: #161b22;
+    border-color: #30363d;
 }
 
 /* ── Add card input ──────────────────────────────────────── */
 QWidget#KanbanColumn QLineEdit {
-    background-color: #ffffff;
-    color: #1a1a2e;
-    border: 1px solid #e5e5e5;
+    background-color: #0d1117;
+    color: #e2e8f0;
+    border: 1px solid #21262d;
     border-radius: 8px;
     padding: 8px 10px;
     font-size: 13px;
 }
 
 QWidget#KanbanColumn QLineEdit:focus {
-    border-color: #93c5fd;
-    background-color: #ffffff;
+    border-color: #1f6feb;
+    background-color: #0d1117;
 }
 
 QPushButton#AddCardBtn {
-    background-color: #2563eb;
+    background-color: #238636;
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -190,51 +190,52 @@ QPushButton#AddCardBtn {
 }
 
 QPushButton#AddCardBtn:hover {
-    background-color: #1d4ed8;
+    background-color: #2ea043;
 }
 
 /* ── Add column button ───────────────────────────────────── */
 QPushButton#AddColumnBtn {
     background-color: transparent;
-    border: 2px dashed #d1d5db;
+    border: 2px dashed #30363d;
     border-radius: 12px;
-    color: #9ca3af;
+    color: #484f58;
     font-size: 24px;
     font-weight: bold;
 }
 
 QPushButton#AddColumnBtn:hover {
-    border-color: #93c5fd;
-    color: #2563eb;
-    background-color: #eff6ff;
+    border-color: #1f6feb;
+    color: #58a6ff;
+    background-color: #0d1117;
 }
 
 /* ── Search bar ──────────────────────────────────────────── */
 QWidget#SearchBar {
-    background-color: #ffffff;
-    border-bottom: 1px solid #e5e5e5;
+    background-color: #161b22;
+    border-bottom: 1px solid #21262d;
 }
 
 QWidget#SearchBar QLineEdit {
-    background-color: #f9fafb;
-    border: 1px solid #e5e5e5;
+    background-color: #0d1117;
+    border: 1px solid #21262d;
     border-radius: 6px;
     padding: 6px 10px;
+    color: #e2e8f0;
 }
 
 QWidget#SearchBar QLineEdit:focus {
-    border-color: #93c5fd;
-    background-color: #ffffff;
+    border-color: #1f6feb;
+    background-color: #0d1117;
 }
 
 /* ── Footer ──────────────────────────────────────────────── */
 QWidget#AppFooter {
-    background-color: #ffffff;
-    border-top: 1px solid #e5e5e5;
+    background-color: #161b22;
+    border-top: 1px solid #21262d;
     max-height: 28px;
 }
 
 QWidget#AppFooter QLabel {
-    color: #9ca3af;
+    color: #484f58;
     font-size: 11px;
 }

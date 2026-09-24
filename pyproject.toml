@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "staxkb"
 version = "0.1.0"
-description = "StaxDash StaxKB — local-first desktop StaxKB application"
+description = "StaxDash StaxKB â€” local-first desktop StaxKB application"
 readme = "README.md"
 license = { text = "EULA" }
 requires-python = ">=3.10"

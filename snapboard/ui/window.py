@@ -1,4 +1,4 @@
-"""StaxKB window — Kanri-inspired kanban board with multi-board support."""
+"""SnapBoard window — Kanri-inspired kanban board with multi-board support."""
 
 from __future__ import annotations
 
@@ -16,17 +16,17 @@ from PySide6.QtWidgets import (
 
 from .board import KanbanBoard
 from .carddialog import CardEditDialog
-from .footer import StaxKBFooter
+from .footer import SnapBoardFooter
 from .manager import BoardManager
-from .menubar import StaxKBMenuBar
+from .menubar import SnapBoardMenuBar
 from .searchbar import SearchBar
 from .sidebar import BoardSidebar
 
 
-class StaxKBWindow(QWidget):
+class SnapBoardWindow(QWidget):
     def __init__(self, version: str = "0.1.0") -> None:
         super().__init__()
-        self.setWindowTitle("StaxKB - Kanban Board")
+        self.setWindowTitle("SnapBoard - Kanban Board")
         self.resize(1200, 700)
 
         layout = QVBoxLayout(self)
@@ -34,7 +34,7 @@ class StaxKBWindow(QWidget):
         layout.setSpacing(0)
 
         # Menu bar
-        self.menu_bar = StaxKBMenuBar()
+        self.menu_bar = SnapBoardMenuBar()
         layout.addWidget(self.menu_bar)
 
         # Board manager
@@ -68,7 +68,7 @@ class StaxKBWindow(QWidget):
         layout.addWidget(self._splitter, 1)
 
         # Footer
-        self.footer = StaxKBFooter(version)
+        self.footer = SnapBoardFooter(version)
         layout.addWidget(self.footer)
 
         # Default theme
@@ -248,7 +248,7 @@ class StaxKBWindow(QWidget):
     def _on_open(self) -> None:
         path, _ = QFileDialog.getOpenFileName(
             self, "Open Board", "",
-            "StaxKB Files (*.json);;All Files (*)",
+            "SnapBoard Files (*.json);;All Files (*)",
         )
         if path and self.manager.load(path):
             self._refresh_sidebar()
@@ -269,7 +269,7 @@ class StaxKBWindow(QWidget):
     def _on_save_as(self) -> None:
         path, _ = QFileDialog.getSaveFileName(
             self, "Save Board", "",
-            "StaxKB Files (*.json);;All Files (*)",
+            "SnapBoard Files (*.json);;All Files (*)",
         )
         if path:
             board = self.manager.active_board()
@@ -295,10 +295,10 @@ class StaxKBWindow(QWidget):
     # ---------------------------------------------------------
 
     def _update_title(self) -> None:
-        title = "StaxKB - Kanban Board"
+        title = "SnapBoard - Kanban Board"
         board = self.manager.active_board()
         if board and board.name:
-            title = f"StaxKB — {board.name}"
+            title = f"SnapBoard — {board.name}"
         if self.manager.current_path():
             title += f" — {self.manager.current_path()}"
         if self.manager.is_dirty():

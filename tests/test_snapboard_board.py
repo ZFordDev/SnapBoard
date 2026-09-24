@@ -4,11 +4,11 @@ from pathlib import Path
 
 from PySide6.QtWidgets import QApplication
 
-from staxkb.ui.board import KanbanBoard
-from staxkb.ui.carddialog import CardEditDialog
-from staxkb.ui.column import KanbanColumn
-from staxkb.ui.manager import BoardManager
-from staxkb.ui.models import Board, Card, Column, Subtask, create_default_board
+from snapboard.ui.board import KanbanBoard
+from snapboard.ui.carddialog import CardEditDialog
+from snapboard.ui.column import KanbanColumn
+from snapboard.ui.manager import BoardManager
+from snapboard.ui.models import Board, Card, Column, Subtask, create_default_board
 
 
 class CardModelTests(unittest.TestCase):
@@ -255,35 +255,35 @@ class CardEditDialogTests(unittest.TestCase):
         self.assertEqual(dialog.due_input.text(), "2026-08-20")
 
 
-class StaxKBWindowTests(unittest.TestCase):
+class SnapBoardWindowTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.app = QApplication.instance() or QApplication([])
 
     def test_window_creation(self) -> None:
-        from staxkb.ui.window import StaxKBWindow
-        window = StaxKBWindow()
-        self.assertIn("StaxKB", window.windowTitle())
+        from snapboard.ui.window import SnapBoardWindow
+        window = SnapBoardWindow()
+        self.assertIn("SnapBoard", window.windowTitle())
 
     def test_window_has_sidebar(self) -> None:
-        from staxkb.ui.window import StaxKBWindow
-        window = StaxKBWindow()
+        from snapboard.ui.window import SnapBoardWindow
+        window = SnapBoardWindow()
         self.assertTrue(hasattr(window, "sidebar"))
 
     def test_window_has_board_manager(self) -> None:
-        from staxkb.ui.window import StaxKBWindow
-        window = StaxKBWindow()
+        from snapboard.ui.window import SnapBoardWindow
+        window = SnapBoardWindow()
         self.assertEqual(window.manager.board_count(), 1)
 
     def test_window_has_search_bar(self) -> None:
-        from staxkb.ui.window import StaxKBWindow
-        window = StaxKBWindow()
+        from snapboard.ui.window import SnapBoardWindow
+        window = SnapBoardWindow()
         self.assertTrue(hasattr(window, "search_bar"))
         self.assertFalse(window.search_bar.isVisible())
 
     def test_window_keyboard_shortcuts_exist(self) -> None:
-        from staxkb.ui.window import StaxKBWindow
-        StaxKBWindow()  # verify creation with shortcuts doesn't crash
+        from snapboard.ui.window import SnapBoardWindow
+        SnapBoardWindow()  # verify creation with shortcuts doesn't crash
         self.assertTrue(True)
 
 
@@ -293,12 +293,12 @@ class SearchBarTests(unittest.TestCase):
         cls.app = QApplication.instance() or QApplication([])
 
     def test_search_bar_creation(self) -> None:
-        from staxkb.ui.searchbar import SearchBar
+        from snapboard.ui.searchbar import SearchBar
         bar = SearchBar()
         self.assertFalse(bar.isVisible())
 
     def test_search_bar_focus(self) -> None:
-        from staxkb.ui.searchbar import SearchBar
+        from snapboard.ui.searchbar import SearchBar
         bar = SearchBar()
         bar.show()
         bar.focus_search()

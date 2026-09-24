@@ -4,7 +4,7 @@ import sys
 
 from PySide6.QtWidgets import QApplication
 
-from .ui.window import StaxKBWindow
+from .ui.window import SnapBoardWindow
 
 
 def launch(file_path: str | None = None) -> int:
@@ -12,7 +12,7 @@ def launch(file_path: str | None = None) -> int:
     if app is None:
         app = QApplication(sys.argv)
 
-    window = StaxKBWindow()
+    window = SnapBoardWindow()
     if file_path:
         window.manager.load(file_path)
         window._refresh_sidebar()

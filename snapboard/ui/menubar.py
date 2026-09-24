@@ -4,7 +4,7 @@ from PySide6.QtGui import QAction, QKeySequence
 from PySide6.QtWidgets import QMenuBar, QWidget
 
 
-class StaxKBMenuBar(QMenuBar):
+class SnapBoardMenuBar(QMenuBar):
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         action_parent = parent if parent is not None else self

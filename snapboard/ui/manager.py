@@ -168,7 +168,7 @@ class BoardManager(QObject):
             self.boards_changed.emit()
             return True
         except Exception as e:
-            print(f"[StaxKB] Failed to save: {e}")
+            print(f"[SnapBoard] Failed to save: {e}")
             return False
 
     def load(self, path: str) -> bool:
@@ -194,7 +194,7 @@ class BoardManager(QObject):
             self.active_board_changed.emit(self._active_index)
             return True
         except Exception as e:
-            print(f"[StaxKB] Failed to load: {e}")
+            print(f"[SnapBoard] Failed to load: {e}")
             return False
 
     def current_path(self) -> str | None:

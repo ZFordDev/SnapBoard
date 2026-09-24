@@ -1,4 +1,4 @@
-"""Search/filter bar for StaxKB — filters cards across all columns by title, tags, description."""
+"""Search/filter bar for SnapBoard — filters cards across all columns by title, tags, description."""
 
 from __future__ import annotations
 
