@@ -1,296 +1,89 @@
-<!-- ========================================================= -->
-<!-- Standards Approval Badge -->
-<!-- ========================================================= -->
-
-<table align="right">
-  <tr>
-    <td>
-      <img src="https://raw.githubusercontent.com/ZFordDev/ZFordDev/main/assets/standards-approved.svg" width="80" alt="ZFordDev Standards Approved Badge">
-    </td>
-  </tr>
-</table>
-
-<!-- ========================================================= -->
-
-<!-- Required Badges -->
-
-<!-- ========================================================= -->
-
-[![Docs](https://img.shields.io/badge/DocsHub-docs.zford.dev-4F46E5?style=flat-square)](https://docs.zford.dev)
-![Status](https://img.shields.io/badge/Status-ALPHA-orange?style=flat-square)
-![Platforms](https://img.shields.io/badge/Platforms-Windows%20%7C%20Linux-blue?style=flat-square)
-
-<!-- ========================================================= -->
-
-<!-- Optional Badges (Uncomment if applicable) -->
-
-<!-- ========================================================= -->
-
-<!-- [![itch.io](https://img.shields.io/badge/itch.io-SnapBoard-FA5C5C?style=flat-square)](https://zforddev.itch.io/snapBoard) -->
-![Downloads](https://img.shields.io/github/downloads/ZFordDev/SnapBoard/total?style=flat-square)
-![JavaScript](https://img.shields.io/badge/Built_with-JavaScript-yellow?style=flat-square)
+<p align="center">
+  <img src="assets/manta_fixer.jpg" width="48%" alt="Working hard" />
+</p>
 
 # SnapBoard
 
-> A lightweight, local‑first kanban board built for the SnapDock ecosystem.  
-> **Status:** Alpha • ARCHIVED • NOT Accepting Contributions
+A small, local-first kanban board from the Snap family.
 
----
+SnapBoard started life as an Electron experiment. It worked, it shipped, and then it sat around collecting dust for a while.
 
-> [!NOTE]  
-> This project has been Archived due to change of direction.
+Now it is back.
 
----
+## Meet Manta
 
-## Why This Exists
+**SnapBoard Manta** is the revival of SnapBoard as part of the **Snap Ocean Suite**.
 
-SnapBoard was created to provide a **fast, local‑first planning tool** that fits naturally into the SnapDock ecosystem.  
-It focuses on simple workflows, clean interaction, and zero cloud dependencies — ideal for developers, creators, and anyone who prefers **local control** over their planning tools.
+Rather than continuing the old Electron codebase, Manta is being rebuilt around the old **StaxKB** project — reworked, rebranded, and given a clearer direction inside the Snap family.
 
-SnapBoard is *not* a full project‑management suite, a Trello clone, or a cloud service.  
-It’s a **minimal, offline‑ready board** designed for personal workflow clarity.
+The new version is moving from:
 
----
+- Electron → **PySide6**
+- old SnapBoard prototype → **StaxKB-based rebuild**
+- loosely defined experiment → **focused local-first kanban app**
 
-## Overview
+## Current Status
 
-SnapBoard provides a clean, distraction‑free kanban experience with:
+> [!WARNING]
+> SnapBoard Manta is currently under active development on a separate branch and is **not ready for normal use yet**.
 
-- multiple boards  
-- dynamic columns  
-- drag‑and‑drop cards  
-- markdown‑based card content  
-- file attachments  
-- persistent JSON storage  
-- a stable, portable Electron‑based desktop workflow  
+The `main` branch still contains the old Electron version of SnapBoard.
 
-The long‑term vision includes optional SnapDock integration and a re‑evaluation of the original slide‑out dock panel concept.
+Older releases are still available if you want to explore the original prototype, but they are **not recommended for everyday use**.
 
-SnapBoard is currently in **Alpha**, with the core board system functional and actively improving.
+## Need Something Today?
 
----
+If you actually need a planning tool right now, there are better options.
 
-## Features
+For scheduling and calendar-style planning:
 
-### ✔ Core Board System
-- Multiple boards
-- Dynamic columns (default 7, expandable up to 32)
-- Drag‑and‑drop cards
-- Persistent JSON‑based storage
-- Local‑first workflow
-- Clean UI and logic separation
+- [SchedPlus](https://github.com/ZFordDev/SchedPlus)
 
-### ✔ Card System
-- Markdown card editing
-- Live markdown preview
-- Editor modal
-- File drag‑and‑drop attachments
-- Automatic persistence
-- Legacy card migration support
+For a dedicated kanban board:
 
-### ⚠ Current Limitations (Alpha)
-- No markdown sanitization yet
-- No workspace isolation
-- No file permission restrictions
-- Absolute file paths stored directly
-- Security hardening still in progress
+- [Kanri](https://github.com/kanriapp/kanri)
 
----
+SnapBoard Manta will join them when it is ready. 🌊
 
-## Requirements
+## What SnapBoard Is
 
-SnapBoard runs on any modern system that supports Electron‑based desktop apps. No additional runtimes or dependencies need to be installed.
+The direction remains simple:
 
-**Operating System**
-- Windows 10 or later  
-- Linux (Ubuntu, Debian, Fedora, Arch, Mint, Pop!\_OS, etc.)  
-- WSL is supported (in‑app updater disabled)  
-- macOS support is not currently available  
+- local-first
+- lightweight
+- offline-friendly
+- multiple boards
+- flexible columns
+- drag-and-drop cards
+- simple personal workflow management
+- no requirement for a cloud account
 
-**Hardware**
-- CPU: 1 core minimum (2 cores recommended)  
-- Memory: 512 MB minimum (1 GB recommended)  
-- Disk Space: ~750 MB  
+The goal is not to build a giant project-management platform.
 
-**Performance**
-SnapBoard typically uses around **180 MB RAM** and **under 1% CPU** during normal editing, making it suitable for low‑power laptops, VMs, and older hardware.
+It is just a good little kanban board.
 
----
+## The Old SnapBoard
 
-## Quick Start
+The original SnapBoard was built with Electron and included:
 
-Get SnapBoard running from source:
+- multiple boards
+- dynamic columns
+- drag-and-drop cards
+- Markdown card content
+- file attachments
+- JSON-based local storage
 
-```bash
-git clone https://github.com/ZFordDev/SnapBoard.git
-cd SnapBoard
+That version remains available through the repository history and GitHub Releases.
 
-# Install dependencies
-npm install
-
-# Build the app
-npm run build
-```
-
-**Windows**
-- `npm install | npm run build`  
-- If npm is missing, install Node.js from [https://nodejs.org](https://nodejs.org)
-
-**Linux**
-- `npm install && npm run build`  
-- If npm is missing: `sudo apt install npm`
-
-**Dev mode:** Coming soon
-
----
-
-## Installation
-
-Most users should install SnapBoard using the prebuilt packages available on the Releases page:
-
-👉 [https://github.com/ZFordDev/SnapBoard/releases](https://github.com/ZFordDev/SnapBoard/releases)
-
-**Windows**
-- Download the `.exe` installer  
-- Run it  
-- SnapBoard is ready to use
-
-**Linux**
-- Download the `.AppImage` or `.deb` package  
-
-**AppImage**
-```bash
-chmod +x SnapBoard.AppImage
-./SnapBoard.AppImage
-```
-> If your distro blocks AppImages, install FUSE or use the `.deb` package instead.
-
-**.deb Package**
-- Double‑click to install via your Software Center  
-  **or**
-```bash
-sudo apt install ./SnapBoard_{version}_amd64.deb
-```
-
-No additional runtimes or dependencies are required.
-
----
-
-## Project Structure
-*SnapBoard uses a clean, modular layout. Only the high‑level structure is shown*
-
-```
-SnapBoard/
-├── assets/                     # App icons and branding
-│
-├── src/
-│   ├── interactions/           # User interaction logic
-│   ├── state/                  # Board + card state management
-│   ├── ui/                     # UI components
-│   ├── utils/                  # Utility helpers
-│   ├── styles/                 # CSS
-│   ├── preload.js              # Electron preload bridge
-│   └── scripts.js              # Renderer entry script
-│
-├── index.html                  # Main application window
-├── main.js                     # Electron main process
-├── bundle.js                   # Bundled renderer output
-│
-├── package.json                # App metadata + dependencies
-├── package-lock.json
-│
-├── README.md
-├── LICENSE
-└── temp_notes.md               # Internal notes (not part of the app)
-
-```
-
----
-
-## Roadmap
-
-### Beta Goals
-- Security hardening
-- Markdown sanitization
-- Stable editor experience
-- Improved drag‑and‑drop behaviour
-- Better column management
-- UI polish and animation cleanup
-
-### Future Direction
-- Tags and filtering
-- Search support
-- Multi‑file attachments
-- Board templates
-- Optional SnapDock integration improvements
-- Re‑evaluating slide‑out dock panel support
-
----
-
-## Screenshots
-
-<p align="center">
-  <img src="assets/screenshots/snapboard-linux.png" width="45%" />
-  <img src="assets/screenshots/snapboard-windows.png" width="45%" />
-</p>
-
----
-
-## Known Issues
-
-- Markdown sanitization incomplete  
-- No workspace isolation  
-- Some drag‑and‑drop edge cases  
-- Linux packaging may vary by distro  
-
----
-
-## Related Projects
-
-- **SnapDock** — Local‑first Writing space 
-  https://github.com/ZFordDev/SnapDock
-
----
-
-## Support
-
-You can support SnapBoard by:
-
-- Leaving a ⭐ on GitHub  
-- Reporting bugs  
-- Suggesting features  
-- Improving documentation  
-- Contributing code
-
----
-
-## Contributing
-
-Contributions, bug reports, feature requests, and feedback are welcome.
-
-See `CONTRIBUTING.md` for project‑specific guidelines.  
-For ecosystem‑wide expectations, see [STANDARDS.md](https://github.com/ZFordDev/ZFordDev/blob/main/STANDARDS.md).
-
----
-
-## Security
-
-See `SECURITY.md` for vulnerability reporting guidelines.  
-If no security policy is present, please report issues responsibly via GitHub Issues.
-
----
+It is now considered the **prototype generation** of SnapBoard rather than the future of the project.
 
 ## License
 
-Released under the MIT License.  
-See `LICENSE` for details.
+SnapBoard is released under the MIT License.
+
+See [`LICENSE`](LICENSE) for details.
 
 ---
 
-## About ZFordDev
-
-This project is part of the ZFordDev ecosystem — a collection of lightweight, practical tools built with clarity, simplicity, and long‑term maintainability in mind.
-
-For ecosystem‑wide standards, see [STANDARDS.md](https://github.com/ZFordDev/ZFordDev/blob/main/STANDARDS.md).
-
----
+Part of the **Snap Ocean Suite** 🌊  
+Built by [ZFordDev](https://github.com/ZFordDev)
